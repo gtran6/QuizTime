@@ -30,7 +30,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ideas" />
+                    android:src="@drawable/avatar" />
 
             </androidx.cardview.widget.CardView>
 
@@ -41,9 +41,9 @@
                 android:layout_marginTop="5dp"
                 android:layout_toEndOf="@id/crdUserProfile"
                 android:gravity="center"
-                android:text="Welcome"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:text="What topic do you want\nto improve today?"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -63,6 +63,7 @@
                 android:layout_width="180dp"
                 android:layout_height="180dp"
                 android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/_636982888705" />
 
             <TextView
@@ -73,7 +74,7 @@
                 android:layout_toEndOf="@id/ivQuiz"
                 android:gravity="center"
                 android:text="@string/let_s_quiz"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="30sp" />
         </RelativeLayout>
 
@@ -85,12 +86,13 @@
         android:layout_margin="10dp"
         android:text="@string/quiz_categories"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_quiz_topic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp" />
+        android:scrollbars="vertical"
+        android:layout_margin="20dp" />
 
 </LinearLayout>

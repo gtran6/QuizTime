@@ -4,16 +4,15 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "question_table")
-data class AndroidQuestionModel(
+@Entity(tableName = "coroutines_table")
+data class CoroutinesQuestionModel (
     @ColumnInfo(name = "question") var question: String,
     @ColumnInfo(name = "option1") var option1: String,
     @ColumnInfo(name = "option2") var option2: String,
     @ColumnInfo(name = "option3") var option3: String,
     @ColumnInfo(name = "answer") var answer: Int
-) {
+    ) {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id") var id: Int? = null
-
+        @PrimaryKey(autoGenerate = true)
+        @ColumnInfo(name = "id") var id: Int? = null
 }
