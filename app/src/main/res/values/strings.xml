@@ -2,4 +2,19 @@
     <string name="app_name">Quiz Time</string>
     <string name="quiz_categories">Quiz Categories</string>
     <string name="let_s_quiz">Let\'s Quiz</string>
+    <string name="android">Android</string>
+    <string name="which_topic_do_you_want_nto_improve_today">Which topic do you want\nto improve today?</string>
+    <string name="confirm">Confirm</string>
+    <string name="_0">0</string>
+    <string name="question">Question</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="no_data_found">No data found</string>
+    <string name="correct">Correct</string>
+    <string name="you_earned_10_points">You Earned 10 Points</string>
+    <string name="go_to_quiz">Go To Quiz</string>
+    <string name="go_to_study_source">Go To Study Source</string>
+    <string name="done">Done</string>
+    <string name="choose_an_option">Choose An Option</string>
 </resources>

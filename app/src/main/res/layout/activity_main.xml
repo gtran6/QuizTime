@@ -39,9 +39,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp"
                 android:layout_toEndOf="@id/crdUserProfile"
-                android:gravity="center"
-                android:text="What topic do you want\nto improve today?"
+                android:text="@string/which_topic_do_you_want_nto_improve_today"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
         </RelativeLayout>
@@ -83,7 +83,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="20dp"
         android:text="@string/quiz_categories"
         android:textColor="@color/black"
         android:textSize="18sp" />
@@ -93,6 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:layout_margin="20dp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        tools:listitem="@layout/quiz_topic_layout"/>
 
 </LinearLayout>

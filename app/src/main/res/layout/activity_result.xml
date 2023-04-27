@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:gravity="center"
-    android:background="@drawable/crd_user_bg"
     android:orientation="vertical"
     tools:context=".Views.ResultActivity">
 
@@ -22,6 +21,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/trophy_winner" />
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/congratulation" />
@@ -41,10 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ltCongratulation"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/concert_one"
-        android:text="Correct"
-        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:text="@string/correct"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -54,24 +54,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tvCorrectAns"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="You Earned 10 Points"
-        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:text="@string/you_earned_10_points"
+        android:textColor="@color/blue"
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDone"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:text="Done"
-        android:textSize="25sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/concert_one"
-        android:layout_marginTop="20dp"
+        android:text="@string/done"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/crd_user_bg1"
         android:layout_below="@id/tvPointsEarned"/>
 

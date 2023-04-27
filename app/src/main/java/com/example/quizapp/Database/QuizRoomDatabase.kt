@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.quizapp.Model.AndroidQuestionModel
 
-@Database(entities = [AndroidQuestionModel::class], version = 1)
+@Database(entities = [AndroidQuestionModel::class], version = 2)
 abstract class QuizRoomDatabase : RoomDatabase() {
     abstract fun getQuestionDAO(): QuestionDAO
 

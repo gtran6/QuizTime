@@ -33,12 +33,12 @@ class SelectOption : AppCompatActivity() {
             if (topicName == "Android") {
                 webView.visibility = View.VISIBLE
                 var url: String =
-                    "https://github.com/bhaveshppatil/Android_Interview_questions/blob/main/Android_Questions.md"
+                    "https://github.com/gtran6"
                 startWebView(url)
             } else if (topicName == "Kotlin") {
                 webView.visibility = View.VISIBLE
                 var url: String =
-                    "https://github.com/bhaveshppatil/Android_Interview_questions/blob/main/Kotlin_Questions.md"
+                    "https://github.com/gtran6"
                 startWebView(url)
             } else {
                 Toast.makeText(this, "Questions will update soon...", Toast.LENGTH_SHORT).show()

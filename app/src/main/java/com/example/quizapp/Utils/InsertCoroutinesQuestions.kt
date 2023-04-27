@@ -1,12 +1,13 @@
 package com.example.quizapp.Utils
 
+import com.example.quizapp.Model.AndroidQuestionModel
 import com.example.quizapp.Model.CoroutinesQuestionModel
 
 class InsertCoroutinesQuestions {
-    private val list = mutableListOf<CoroutinesQuestionModel>()
+    private val list = mutableListOf<AndroidQuestionModel>()
 
-    fun insertQuestion(): MutableList<CoroutinesQuestionModel> {
-        val model1 = CoroutinesQuestionModel(
+    fun insertCoroutinesQuestion(): MutableList<AndroidQuestionModel> {
+        val model1 = AndroidQuestionModel(
             "Q.1. What is a Coroutine in Kotlin?",
             "A function that returns multiple values",
             "A function that runs in the background",
@@ -15,7 +16,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model1)
 
-        val model2 = CoroutinesQuestionModel(
+        val model2 = AndroidQuestionModel(
             "Q.2. Which keyword is used to start a Coroutine in Kotlin?",
             "await",
             "launch",
@@ -24,7 +25,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model2)
 
-        val model3 = CoroutinesQuestionModel(
+        val model3 = AndroidQuestionModel(
             "Q.3. What is the purpose of the withContext() function in Coroutines?",
             "To switch to a different thread",
             "To pause the Coroutine and wait for a result",
@@ -33,7 +34,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model3)
 
-        val model4 = CoroutinesQuestionModel(
+        val model4 = AndroidQuestionModel(
             "Q.4. Which of the following is a benefit of using Coroutines in Android?",
             "Improved battery life",
             "Faster app startup time",
@@ -42,7 +43,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model4)
 
-        val model5 = CoroutinesQuestionModel(
+        val model5 = AndroidQuestionModel(
             "Q.5. Which of the following is a disadvantage of using Coroutines in Android?",
             "Increased memory usage",
             "Increased code complexity",
@@ -51,7 +52,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model5)
 
-        val model6 = CoroutinesQuestionModel(
+        val model6 = AndroidQuestionModel(
             "Q.6. Which method is used to run a Coroutine in the Main thread in Android?",
             "runBlocking()",
             "withContext(Dispatchers.Main)",
@@ -60,7 +61,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model6)
 
-        val model7 = CoroutinesQuestionModel(
+        val model7 = AndroidQuestionModel(
             "Q.7. What is the purpose of a Deferred object in Coroutines?",
             "To hold the result of a Coroutine computation",
             "To pause a Coroutine and wait for a result",
@@ -69,7 +70,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model7)
 
-        val model8 = CoroutinesQuestionModel(
+        val model8 = AndroidQuestionModel(
             "Q.8. Which of the following is true about Coroutines and exceptions?",
             "Coroutines can't handle exceptions",
             "Coroutines can handle exceptions using try/catch blocks",
@@ -78,7 +79,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model8)
 
-        val model9 = CoroutinesQuestionModel(
+        val model9 = AndroidQuestionModel(
             "Q.9. Which of the following is true about Coroutines and concurrency?",
             "Coroutines always run concurrently",
             "Coroutines never run concurrently",
@@ -87,7 +88,7 @@ class InsertCoroutinesQuestions {
         )
         list.add(model9)
 
-        val model10 = CoroutinesQuestionModel(
+        val model10 = AndroidQuestionModel(
             "Q.10. Which Coroutine builder is used to launch a new Coroutine that runs indefinitely?",
             "launch",
             "runBlocking",

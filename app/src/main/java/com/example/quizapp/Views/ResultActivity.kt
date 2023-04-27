@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_result.*
 
 class ResultActivity : AppCompatActivity() {
 
-    private lateinit var quizRoomDatabase: QuizRoomDatabase
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var questionDAO: QuestionDAO
 

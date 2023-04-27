@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.quizapp.Model.QuizTopicModel
 import com.example.quizapp.R
+import com.example.quizapp.databinding.QuizTopicLayoutBinding
 
 class QuizTopicAdapter(
     val context: Context,
@@ -17,19 +19,19 @@ class QuizTopicAdapter(
 ) : RecyclerView.Adapter<QuizTopicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizTopicViewHolder {
-        val inflater = LayoutInflater.from(context)
-        val view1: View = inflater.inflate(R.layout.quiz_topic_layout, parent, false)
-        return QuizTopicViewHolder(view1)
+        return QuizTopicViewHolder(QuizTopicLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: QuizTopicViewHolder, position: Int) {
         val quizTopicModel = quizTopicList[position]
 
-        holder.title.text = quizTopicModel.topicName
-        holder.ivIcon.setImageResource(quizTopicModel.iconID)
+        holder.binding.apply {
+            tvTopicName.text = quizTopicModel.topicName
+            Glide.with(holder.itemView).load(quizTopicModel.iconID).into(holder.binding.ivTopicIcon)
 
-        holder.ivStart.setOnClickListener {
-            clickListener.onStartQuiz(quizTopicModel, position)
+            layout.setOnClickListener {
+                clickListener.onStartQuiz(quizTopicModel, position)
+            }
         }
     }
 
@@ -38,10 +40,4 @@ class QuizTopicAdapter(
     }
 }
 
-class QuizTopicViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    val title: TextView = itemView.findViewById(R.id.tvTopicName)
-    val ivIcon: ImageView = itemView.findViewById(R.id.ivTopicIcon)
-    val ivStart: ImageView = itemView.findViewById(R.id.ivStart)
-
-}
+class QuizTopicViewHolder(val binding: QuizTopicLayoutBinding) : RecyclerView.ViewHolder(binding.root)

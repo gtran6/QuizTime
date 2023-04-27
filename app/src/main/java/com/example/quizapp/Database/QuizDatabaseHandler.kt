@@ -1,5 +1,6 @@
 package com.example.quizapp.Database
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -17,7 +18,6 @@ class QuizDatabaseHandler(val context: Context) :
         val OPTION1 = "option1"
         val OPTION2 = "option2"
         val OPTION3 = "option3"
-        val OPTION4 = "option4"
         val ANSWER = "answer"
 
     }
@@ -29,7 +29,6 @@ class QuizDatabaseHandler(val context: Context) :
                     "$OPTION1 TEXT, " +
                     "$OPTION2 TEXT, " +
                     "$OPTION3 TEXT, " +
-                    "$OPTION4 TEXT, " +
                     "$ANSWER INTEGER)"
         db?.execSQL(query)
     }
@@ -38,6 +37,7 @@ class QuizDatabaseHandler(val context: Context) :
 
     }
 
+    @SuppressLint("Range")
     fun getQuestionData(): MutableList<AndroidQuestionModel> {
 
         val questionModelList = mutableListOf<AndroidQuestionModel>()
@@ -54,11 +54,10 @@ class QuizDatabaseHandler(val context: Context) :
                 val option1 = cursor.getString(cursor.getColumnIndex(OPTION1))
                 val option2 = cursor.getString(cursor.getColumnIndex(OPTION2))
                 val option3 = cursor.getString(cursor.getColumnIndex(OPTION3))
-                val option4 = cursor.getString(cursor.getColumnIndex(OPTION4))
                 val answer = cursor.getInt(cursor.getColumnIndex(ANSWER))
 
                 val questionModel =
-                    AndroidQuestionModel(question, option1, option2, option3, option4, answer)
+                    AndroidQuestionModel(question, option1, option2, option3, answer)
                 questionModelList.add(questionModel)
 
             } while (cursor.moveToNext())
@@ -74,7 +73,6 @@ class QuizDatabaseHandler(val context: Context) :
         contentValues.put(OPTION1, androidQuestionModel.option1)
         contentValues.put(OPTION2, androidQuestionModel.option2)
         contentValues.put(OPTION3, androidQuestionModel.option3)
-        contentValues.put(OPTION4, androidQuestionModel.option4)
         contentValues.put(ANSWER, androidQuestionModel.answer)
 
         val id = db.insert(TABLE_NAME, null, contentValues)

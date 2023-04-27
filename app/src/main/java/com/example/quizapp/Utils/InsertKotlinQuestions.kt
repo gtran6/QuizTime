@@ -11,7 +11,6 @@ class InsertKotlinQuestions {
             "Google",
             "Adobe",
             "JetBrains",
-            "Microsoft",
             3
         )
         questionModelList.add(questionModel)
@@ -20,7 +19,6 @@ class InsertKotlinQuestions {
             "What is the default behavior of Kotlin classes?",
             "All classes are public",
             "All classes are sealed",
-            "All classes are abstract",
             "All classes are final",
             4
         )
@@ -32,7 +30,6 @@ class InsertKotlinQuestions {
             "A variable that can't change, read-only",
             "A variable that can be changed",
             "A variable used for string interpolation",
-            "None of the above",
             1
         )
         questionModelList.add(questionModel2)
@@ -43,7 +40,6 @@ class InsertKotlinQuestions {
             "val list = arrayListOf(1, 2, 3)",
             "val map = hashMapOf(1 to \"one\", 2 to \"two\", 3 to \"three\")",
             "val set = hashSetOf(1, 2, 3)",
-            "enum class Color {RED, GREEN, BLUE}",
             1
         )
         questionModelList.add(questionModel3)
@@ -54,7 +50,6 @@ class InsertKotlinQuestions {
             ".NET CLR",
             "LLVM",
             "Javascript",
-            "None of the above",
             1
         )
 
@@ -65,7 +60,6 @@ class InsertKotlinQuestions {
             "/ multi line comment /",
             "//",
             "/* */",
-            "None of these",
             1
         )
         questionModelList.add(questionModel5)
@@ -74,9 +68,8 @@ class InsertKotlinQuestions {
             "Which file extension is used to save Kotlin files.",
             ".java",
             ".kot",
-            ".andriod",
             ".kt or .kts",
-            4
+            3
         )
         questionModelList.add(questionModel6)
 
@@ -85,7 +78,6 @@ class InsertKotlinQuestions {
             "1",
             "2",
             "3",
-            "4",
             2
         )
         questionModelList.add(questionModel7)
@@ -94,9 +86,8 @@ class InsertKotlinQuestions {
             "What is the use of data class in Kotlin?",
             "extract the basic data types",
             "delete the basic data types",
-            "present the basic data types",
             "holds the basic data types",
-            4
+            3
         )
         questionModelList.add(questionModel8)
 
@@ -104,9 +95,8 @@ class InsertKotlinQuestions {
             "What is the syntax for declaring a variable as volatile in Kotlin?",
             "var x: Long? = null",
             "Volatile var x: Long?",
-            "Volatile var x",
             "Volatile var x: Long? = null",
-            4
+            3
         )
         questionModelList.add(questionModel9)
 
@@ -115,7 +105,6 @@ class InsertKotlinQuestions {
             "Using == operator",
             "Using compareTo()",
             "Both A and B",
-            "None of the above",
             3
         )
         questionModelList.add(questionModel10)
@@ -125,7 +114,6 @@ class InsertKotlinQuestions {
             "True",
             "False",
             "Can be true or false",
-            "Can not say",
             1
         )
         questionModelList.add(questionModel11)
@@ -135,7 +123,6 @@ class InsertKotlinQuestions {
             "Yes",
             "No",
             "Can be yes or no",
-            "Can not say",
             2
         )
         questionModelList.add(questionModel12)
@@ -145,7 +132,6 @@ class InsertKotlinQuestions {
             "Range",
             "Elvis Operator",
             "Sealed Class",
-            "Lambda function",
             2
         )
         questionModelList.add(questionModel13)
@@ -155,7 +141,6 @@ class InsertKotlinQuestions {
             "Yes",
             "No",
             "Can be yes or no",
-            "Can not say",
             2
         )
         questionModelList.add(questionModel14)
@@ -165,7 +150,6 @@ class InsertKotlinQuestions {
             "change()",
             "modify()",
             "set()",
-            "assign()",
             3
         )
         questionModelList.add(questionModel15)
@@ -175,7 +159,6 @@ class InsertKotlinQuestions {
             "Yes",
             "No",
             "Can be yes or no",
-            "Can not say",
             1
         )
         questionModelList.add(questionModel16)
@@ -185,7 +168,6 @@ class InsertKotlinQuestions {
             "fun static main(){}",
             "fun main(){}",
             "fun Main(){}",
-            " public static void main(){}",
             2
         )
         questionModelList.add(questionModel17)

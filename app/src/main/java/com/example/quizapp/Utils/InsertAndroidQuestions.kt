@@ -13,7 +13,6 @@ class InsertAndroidQuestions {
             "Safari",
             "Firefox",
             "Open-source Webkit",
-            "Chrome",
             3
         )
         questionModelList.add(questionModel)
@@ -23,7 +22,6 @@ class InsertAndroidQuestions {
             "Dalvik virtual machine",
             "JVM",
             "Simple virtual machine",
-            "None of the above",
             1
         )
         questionModelList.add(questionModel1)
@@ -35,7 +33,6 @@ class InsertAndroidQuestions {
             "For storing the data in the database",
             "For sharing the data between applications",
             "For sending the data from an application to another application",
-            "None of the above",
             3
         )
         questionModelList.add(questionModel2)
@@ -46,10 +43,8 @@ class InsertAndroidQuestions {
 
             "Android Phone Kit",
             "Android Page Kit",
-            "Android Poster Kit",
             "Android Package Kit",
-
-            4
+            3
         )
         questionModelList.add(questionModel3)
 
@@ -60,8 +55,6 @@ class InsertAndroidQuestions {
             "Android Programming Interface",
             "Application Programming Interface",
             "Android Page Interface",
-            "Application Page Interface",
-
             1
         )
 
@@ -72,9 +65,8 @@ class InsertAndroidQuestions {
 
             "android class",
             "android package",
-            "UI Presenter",
             "A single screen in an application with supporting java code",
-            4
+            3
         )
         questionModelList.add(questionModel5)
 
@@ -83,7 +75,6 @@ class InsertAndroidQuestions {
             "Android Asset Processing Tool.",
             "Android Asset Providing Tool.",
             "Android Asset Packaging Tool.",
-            "Android Asset Packaging Technique",
             3
         )
         questionModelList.add(questionModel6)
@@ -93,7 +84,6 @@ class InsertAndroidQuestions {
             "OnPostExecution()",
             "OnPreExecution()",
             "DoInBackground()",
-            "OnProgressUpdate()",
             1
         )
         questionModelList.add(questionModel7)
@@ -103,7 +93,6 @@ class InsertAndroidQuestions {
             "Swiping Activities",
             "Swiping Fragments",
             "Paging Down List Items",
-            "Not Supported By Android SDK",
             2
         )
         questionModelList.add(questionModel8)
@@ -113,7 +102,6 @@ class InsertAndroidQuestions {
             "Windows",
             "Linux",
             "Redhat",
-            "Mac",
             2
         )
         questionModelList.add(questionModel9)
@@ -123,7 +111,6 @@ class InsertAndroidQuestions {
             "Information about layout in an application",
             "The information about activities in an application",
             "All the information about an application",
-            "None of the above",
             3
         )
         questionModelList.add(questionModel10)
@@ -133,7 +120,6 @@ class InsertAndroidQuestions {
             "WiFi Driver",
             "Device Driver",
             "Video Driver",
-            "Bluetooth Driver",
             1
         )
         questionModelList.add(questionModel11)
@@ -142,9 +128,8 @@ class InsertAndroidQuestions {
             "Android is based on Linux for the following reason.",
             "Portability",
             "Security",
-            "Networking",
             "All are Correct",
-            4
+            3
         )
         questionModelList.add(questionModel12)
 
@@ -152,9 +137,8 @@ class InsertAndroidQuestions {
             "Which among these are NOT a part of Android’s native libraries?",
             "OpenGL",
             "Webkit",
-            "SQLite",
             "Dalvik",
-            4
+            3
         )
         questionModelList.add(questionModel13)
 
@@ -163,7 +147,6 @@ class InsertAndroidQuestions {
             "XML resource files",
             "Java source code files",
             "Image and icon files",
-            "All are Correct",
             2
         )
         questionModelList.add(questionModel14)
@@ -173,7 +156,6 @@ class InsertAndroidQuestions {
             "cupcake",
             "Muffin",
             "Gingerbread",
-            "Honeycomb",
             2
         )
         questionModelList.add(questionModel15)

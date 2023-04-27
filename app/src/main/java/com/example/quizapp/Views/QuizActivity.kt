@@ -19,11 +19,11 @@ import com.example.quizapp.MusicController.TimerDialog
 import com.example.quizapp.R
 import com.example.quizapp.Repository.QuizRepository
 import com.example.quizapp.Utils.InsertAndroidQuestions
+import com.example.quizapp.Utils.InsertCoroutinesQuestions
 import com.example.quizapp.Utils.InsertKotlinQuestions
 import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
 import kotlinx.android.synthetic.main.activity_quiz.*
-
 
 class QuizActivity : AppCompatActivity() {
 
@@ -42,9 +42,6 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var wrongAnimation: Animation
 
     private var questionTotal: Int = 0
-
-    //    private lateinit var countDownTimer: CountDownTimer
-    //    var timeValue = 130
 
     var MUSIC_FLAG = 0
     private lateinit var timerDialog: TimerDialog
@@ -76,6 +73,8 @@ class QuizActivity : AppCompatActivity() {
 
         val insertQuestions = InsertAndroidQuestions()
         val kotlinQuestions = InsertKotlinQuestions()
+        val coroutinesQuestions = InsertCoroutinesQuestions()
+
         if (topicName == "Android") {
 
             for (i in 0..insertQuestions.insertQuestionToDB().size) {
@@ -85,6 +84,11 @@ class QuizActivity : AppCompatActivity() {
 
             for (i in 0..kotlinQuestions.insertKotlinQuestionToDB().size) {
                 quizViewModel.addQuestionData(kotlinQuestions.insertKotlinQuestionToDB()[i])
+            }
+        } else if (topicName == "Coroutines") {
+
+            for (i in 0..coroutinesQuestions.insertCoroutinesQuestion().size) {
+                quizViewModel.addQuestionData(coroutinesQuestions.insertCoroutinesQuestion()[i])
             }
         }
 
@@ -99,7 +103,7 @@ class QuizActivity : AppCompatActivity() {
 
         btnConfirm.setOnClickListener {
             if (!isAnswered) {
-                if (radio_button1.isChecked || radio_button2.isChecked || radio_button3.isChecked || radio_button4.isChecked) {
+                if (radio_button1.isChecked || radio_button2.isChecked || radio_button3.isChecked) {
                     checkAnswerIsCorrectORNot()
                 } else {
                     Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show();
@@ -123,21 +127,18 @@ class QuizActivity : AppCompatActivity() {
         radio_button1.setTextColor(Color.BLACK)
         radio_button2.setTextColor(Color.BLACK)
         radio_button3.setTextColor(Color.BLACK)
-        radio_button4.setTextColor(Color.BLACK)
 
         radio_button1.setBackgroundColor(Color.TRANSPARENT)
         radio_button2.setBackgroundColor(Color.TRANSPARENT)
         radio_button3.setBackgroundColor(Color.TRANSPARENT)
-        radio_button4.setBackgroundColor(Color.TRANSPARENT)
 
-        if (topicName.equals("Android") || topicName.equals("Kotlin")) {
+        if (topicName.equals("Android") || topicName.equals("Kotlin") || topicName.equals("Coroutines")) {
             if (questionCounter < questionCount) {
                 androidQuestionModel = questionModelList[questionCounter]
                 tvQuestion.text = androidQuestionModel.question
                 radio_button1.text = androidQuestionModel.option1
                 radio_button2.text = androidQuestionModel.option2
                 radio_button3.text = androidQuestionModel.option3
-                radio_button4.text = androidQuestionModel.option4
                 questionCounter++;
                 isAnswered = false;
 
@@ -146,8 +147,6 @@ class QuizActivity : AppCompatActivity() {
             }
         } else {
             layoutMain.visibility = View.GONE
-            tvNoQuizFound.visibility = View.VISIBLE
-            tvNoQuizFound.text = "$topicName data not found, attend another quiz"
         }
     }
 
@@ -196,9 +195,6 @@ class QuizActivity : AppCompatActivity() {
             }
             3 -> {
                 radio_button3.setBackgroundResource(R.drawable.correct_ans_bg)
-            }
-            4 -> {
-                radio_button4.setBackgroundResource(R.drawable.correct_ans_bg)
             }
         }
 
