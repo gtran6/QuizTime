@@ -31,18 +31,23 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="330dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="110dp"
-            android:src="@drawable/research" />
+            android:src="@drawable/pic5" />
 
         <TextView
+            android:id="@+id/txtChoose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/choose_an_option"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_below="@id/image">
 
@@ -50,10 +55,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnQuiz"
-            android:layout_width="320dp"
+            android:layout_width="345dp"
             android:layout_height="wrap_content"
-            android:layout_above="@id/btnInterview"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/txtChoose"
+            android:layout_marginTop="30dp"
             android:background="@drawable/crd_user_bg1"
             android:paddingStart="50dp"
             android:paddingTop="15dp"
@@ -67,12 +72,11 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnInterview"
-            android:layout_width="320dp"
+            android:layout_width="345dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
+            android:layout_below="@+id/btnQuiz"
             android:background="@drawable/crd_user_bg1"
             android:paddingStart="50dp"
             android:paddingTop="15dp"

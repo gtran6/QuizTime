@@ -22,9 +22,8 @@ class MainActivity : AppCompatActivity(), ClickListener {
 
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var questionDAO: QuestionDAO
-
     private val quizTopicModelList = mutableListOf<QuizTopicModel>()
-    lateinit var quizTopicAdapter: QuizTopicAdapter
+    private lateinit var quizTopicAdapter: QuizTopicAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,25 +49,25 @@ class MainActivity : AppCompatActivity(), ClickListener {
         quizTopicModelList.add(quizTopicModel1)
         val quizTopicModel2 = QuizTopicModel(R.drawable.pic3, "Kotlin")
         quizTopicModelList.add(quizTopicModel2)
-        val quizTopicModel3 = QuizTopicModel(R.drawable.pic4, "Networking")
+        val quizTopicModel3 = QuizTopicModel(R.drawable.pic4, "Room DB")
         quizTopicModelList.add(quizTopicModel3)
-        val quizTopicModel4 = QuizTopicModel(R.drawable.pic5, "Security")
+        val quizTopicModel4 = QuizTopicModel(R.drawable.pic5, "MVVM")
         quizTopicModelList.add(quizTopicModel4)
         val quizTopicModel5 = QuizTopicModel(R.drawable.pic6, "Database")
         quizTopicModelList.add(quizTopicModel5)
         val quizTopicModel6 = QuizTopicModel(R.drawable.pic7, "Algorithms")
         quizTopicModelList.add(quizTopicModel6)
-        val quizTopicModel7 = QuizTopicModel(R.drawable.pic8, "Javascript")
+        val quizTopicModel7 = QuizTopicModel(R.drawable.pic8, "Android Jetpack")
         quizTopicModelList.add(quizTopicModel7)
-        val quizTopicModel8 = QuizTopicModel(R.drawable.pic1, "Python")
+        val quizTopicModel8 = QuizTopicModel(R.drawable.pic1, "Dependency Injection")
         quizTopicModelList.add(quizTopicModel8)
-        val quizTopicModel9 = QuizTopicModel(R.drawable.pic2, "C++")
+        val quizTopicModel9 = QuizTopicModel(R.drawable.pic2, "OOP")
         quizTopicModelList.add(quizTopicModel9)
         val quizTopicModel10 = QuizTopicModel(R.drawable.pic3, "Coroutines")
         quizTopicModelList.add(quizTopicModel10)
     }
 
-    fun setRecyclerView() {
+    private fun setRecyclerView() {
         quizTopicAdapter = QuizTopicAdapter(this, quizTopicModelList, this)
         val layoutManager = GridLayoutManager(this,2)
         recycler_view_quiz_topic.layoutManager = layoutManager

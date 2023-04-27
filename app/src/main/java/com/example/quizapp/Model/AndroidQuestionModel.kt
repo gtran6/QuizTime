@@ -12,8 +12,6 @@ data class AndroidQuestionModel(
     @ColumnInfo(name = "option3") var option3: String,
     @ColumnInfo(name = "answer") var answer: Int
 ) {
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id") var id: Int? = null
-
 }

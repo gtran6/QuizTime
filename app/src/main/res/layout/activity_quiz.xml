@@ -139,7 +139,7 @@
 
         <Button
             android:id="@+id/btnConfirm"
-            android:layout_width="280dp"
+            android:layout_width="345dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/crdRadio"
             android:layout_centerHorizontal="true"

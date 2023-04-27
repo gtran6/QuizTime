@@ -9,13 +9,16 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizapp.R
+import com.example.quizapp.databinding.ActivitySelectOptionBinding
 import kotlinx.android.synthetic.main.activity_select_option.*
 
 class SelectOption : AppCompatActivity() {
+    private lateinit var binding: ActivitySelectOptionBinding
     private lateinit var webView: WebView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select_option)
+        binding = ActivitySelectOptionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         var intent = Intent()
         intent = getIntent()
@@ -26,6 +29,8 @@ class SelectOption : AppCompatActivity() {
             intent.putExtra("TopicName", topicName)
             startActivity(intent)
         }
+        binding.txtTopic.text = topicName
+
         webView = findViewById(R.id.webView)
 
         btnInterview.setOnClickListener {
