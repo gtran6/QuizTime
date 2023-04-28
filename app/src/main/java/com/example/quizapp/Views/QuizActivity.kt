@@ -112,7 +112,6 @@ class QuizActivity : AppCompatActivity() {
             moveToNextQuestion()
         })
 
-
         btnConfirm.setOnClickListener {
             if (!isAnswered) {
                 if (radio_button1.isChecked || radio_button2.isChecked || radio_button3.isChecked) {
@@ -174,7 +173,7 @@ class QuizActivity : AppCompatActivity() {
 
         isAnswered = true
         val rbSelected: RadioButton = findViewById(radio_group.checkedRadioButtonId)
-        var ansPosition = radio_group.indexOfChild(rbSelected) + 1
+        val ansPosition = radio_group.indexOfChild(rbSelected) + 1
 
         if (ansPosition == questionModel.answer) {
 
