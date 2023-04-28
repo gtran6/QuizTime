@@ -2,20 +2,20 @@ package com.example.quizapp.Repository
 
 import androidx.lifecycle.LiveData
 import com.example.quizapp.Database.QuestionDAO
-import com.example.quizapp.Model.AndroidQuestionModel
+import com.example.quizapp.Model.QuestionModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class QuizRepository(val questionDAO: QuestionDAO) {
 
-    fun getAllRoutines(): LiveData<List<AndroidQuestionModel>> {
+    fun getAllRoutines(): LiveData<List<QuestionModel>> {
         return questionDAO.getAllQuestion()
     }
 
-    fun addQuestionTORoom(androidQuestionModel: AndroidQuestionModel){
+    fun addQuestionTORoom(questionModel: QuestionModel){
         CoroutineScope(Dispatchers.IO).launch {
-            questionDAO.addQuestion(androidQuestionModel)
+            questionDAO.addQuestion(questionModel)
         }
     }
 

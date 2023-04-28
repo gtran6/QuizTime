@@ -10,11 +10,10 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.Database.QuestionDAO
 import com.example.quizapp.Database.QuizRoomDatabase
-import com.example.quizapp.Model.AndroidQuestionModel
-import com.example.quizapp.MusicController.PlaySound
+import com.example.quizapp.Model.QuestionModel
 import com.example.quizapp.MusicController.TimerDialog
 import com.example.quizapp.R
 import com.example.quizapp.Repository.QuizRepository
@@ -24,13 +23,15 @@ import com.example.quizapp.Utils.InsertKotlinQuestions
 import com.example.quizapp.Utils.InsertMVVMQuestions
 import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
+import com.example.quizapp.databinding.ActivityQuizBinding
 import kotlinx.android.synthetic.main.activity_quiz.*
 
 class QuizActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityQuizBinding
 
-    private var questionModelList = mutableListOf<AndroidQuestionModel>()
+    private var questionModelList = mutableListOf<QuestionModel>()
     private lateinit var quizViewModel: QuizViewModel
-    private lateinit var androidQuestionModel: AndroidQuestionModel
+    private lateinit var questionModel: QuestionModel
     private lateinit var questionDAO: QuestionDAO
 
     private var questionCount: Int = 0
@@ -51,8 +52,8 @@ class QuizActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
-        supportActionBar?.hide()
+        binding = ActivityQuizBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         var intent = Intent()
         intent = getIntent()
@@ -62,7 +63,7 @@ class QuizActivity : AppCompatActivity() {
         val quizRepository = QuizRepository(questionDAO)
         val quizViewModelFactory = QuizViewModelFactory(quizRepository)
         quizViewModel =
-            ViewModelProviders.of(this, quizViewModelFactory).get(QuizViewModel::class.java)
+            ViewModelProvider(this, quizViewModelFactory).get(QuizViewModel::class.java)
 
 
         wrongAnimation = AnimationUtils.loadAnimation(this, R.anim.incorrect_animation)
@@ -76,25 +77,30 @@ class QuizActivity : AppCompatActivity() {
         val coroutinesQuestions = InsertCoroutinesQuestions()
         val mvvmQuestions = InsertMVVMQuestions()
 
-        if (topicName == "Android") {
+        when (topicName) {
+            "Android" -> {
 
-            for (i in 0..insertQuestions.insertQuestionToDB().size) {
-                quizViewModel.addQuestionData(insertQuestions.insertQuestionToDB()[i])
+                for (i in 0..insertQuestions.insertQuestionToDB().size) {
+                    quizViewModel.addQuestionData(insertQuestions.insertQuestionToDB()[i])
+                }
             }
-        } else if (topicName == "Kotlin") {
+            "Kotlin" -> {
 
-            for (i in 0..kotlinQuestions.insertKotlinQuestionToDB().size) {
-                quizViewModel.addQuestionData(kotlinQuestions.insertKotlinQuestionToDB()[i])
+                for (i in 0..kotlinQuestions.insertKotlinQuestionToDB().size) {
+                    quizViewModel.addQuestionData(kotlinQuestions.insertKotlinQuestionToDB()[i])
+                }
             }
-        } else if (topicName == "Coroutines") {
+            "Coroutines" -> {
 
-            for (i in 0..coroutinesQuestions.insertCoroutinesQuestion().size) {
-                quizViewModel.addQuestionData(coroutinesQuestions.insertCoroutinesQuestion()[i])
+                for (i in 0..coroutinesQuestions.insertCoroutinesQuestion().size) {
+                    quizViewModel.addQuestionData(coroutinesQuestions.insertCoroutinesQuestion()[i])
+                }
             }
-        } else if (topicName == "MVVM") {
+            "MVVM" -> {
 
-            for (i in 0..mvvmQuestions.insertMVVMQuestionToDB().size) {
-                quizViewModel.addQuestionData(mvvmQuestions.insertMVVMQuestionToDB()[i])
+                for (i in 0..mvvmQuestions.insertMVVMQuestionToDB().size) {
+                    quizViewModel.addQuestionData(mvvmQuestions.insertMVVMQuestionToDB()[i])
+                }
             }
         }
 
@@ -110,9 +116,9 @@ class QuizActivity : AppCompatActivity() {
         btnConfirm.setOnClickListener {
             if (!isAnswered) {
                 if (radio_button1.isChecked || radio_button2.isChecked || radio_button3.isChecked) {
-                    checkAnswerIsCorrectORNot()
+                    checkAnswerIsCorrectOrNot()
                 } else {
-                    Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Please select an answer.", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 moveToNextQuestion()
@@ -138,15 +144,15 @@ class QuizActivity : AppCompatActivity() {
         radio_button2.setBackgroundColor(Color.TRANSPARENT)
         radio_button3.setBackgroundColor(Color.TRANSPARENT)
 
-        if (topicName.equals("Android") || topicName.equals("Kotlin") || topicName.equals("Coroutines") || topicName.equals("MVVM")) {
+        if (topicName == "Android" || topicName == "Kotlin" || topicName == "Coroutines" || topicName == "MVVM") {
             if (questionCounter < questionCount) {
-                androidQuestionModel = questionModelList[questionCounter]
-                tvQuestion.text = androidQuestionModel.question
-                radio_button1.text = androidQuestionModel.option1
-                radio_button2.text = androidQuestionModel.option2
-                radio_button3.text = androidQuestionModel.option3
-                questionCounter++;
-                isAnswered = false;
+                questionModel = questionModelList[questionCounter]
+                tvQuestion.text = questionModel.question
+                radio_button1.text = questionModel.option1
+                radio_button2.text = questionModel.option2
+                radio_button3.text = questionModel.option3
+                questionCounter++
+                isAnswered = false
 
             } else {
                 quizEnded()
@@ -164,13 +170,13 @@ class QuizActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun checkAnswerIsCorrectORNot() {
+    private fun checkAnswerIsCorrectOrNot() {
 
         isAnswered = true
         val rbSelected: RadioButton = findViewById(radio_group.checkedRadioButtonId)
         var ansPosition = radio_group.indexOfChild(rbSelected) + 1
 
-        if (ansPosition == androidQuestionModel.answer) {
+        if (ansPosition == questionModel.answer) {
 
             rbSelected.setBackgroundResource(R.drawable.correct_ans_bg)
 
@@ -190,7 +196,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun showSolution() {
 
-        when (androidQuestionModel.answer) {
+        when (questionModel.answer) {
             1 -> {
                 radio_button1.setBackgroundResource(R.drawable.correct_ans_bg)
             }

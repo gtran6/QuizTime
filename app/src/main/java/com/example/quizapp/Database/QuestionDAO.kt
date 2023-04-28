@@ -5,17 +5,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.quizapp.Model.AndroidQuestionModel
+import com.example.quizapp.Model.QuestionModel
 
 
 @Dao
 interface QuestionDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addQuestion(androidQuestionModel: AndroidQuestionModel)
+    fun addQuestion(questionModel: QuestionModel)
 
     @Query("select * from question_table")
-    fun getAllQuestion(): LiveData<List<AndroidQuestionModel>>
+    fun getAllQuestion(): LiveData<List<QuestionModel>>
 
     @Query("delete from question_table")
     fun deleteAllQuestion()

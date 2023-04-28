@@ -6,7 +6,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
-import com.example.quizapp.Model.AndroidQuestionModel
+import com.example.quizapp.Model.QuestionModel
 
 class QuizDatabaseHandler(val context: Context) :
     SQLiteOpenHelper(context, "quiz_database", null, 1) {
@@ -38,9 +38,9 @@ class QuizDatabaseHandler(val context: Context) :
     }
 
     @SuppressLint("Range")
-    fun getQuestionData(): MutableList<AndroidQuestionModel> {
+    fun getQuestionData(): MutableList<QuestionModel> {
 
-        val questionModelList = mutableListOf<AndroidQuestionModel>()
+        val questionModelList = mutableListOf<QuestionModel>()
         val db = readableDatabase
         val query = "select * from $TABLE_NAME"
 
@@ -57,7 +57,7 @@ class QuizDatabaseHandler(val context: Context) :
                 val answer = cursor.getInt(cursor.getColumnIndex(ANSWER))
 
                 val questionModel =
-                    AndroidQuestionModel(question, option1, option2, option3, answer)
+                    QuestionModel(question, option1, option2, option3, answer)
                 questionModelList.add(questionModel)
 
             } while (cursor.moveToNext())
@@ -65,15 +65,15 @@ class QuizDatabaseHandler(val context: Context) :
         return questionModelList
     }
 
-    fun addQuestionToDB(androidQuestionModel: AndroidQuestionModel) {
+    fun addQuestionToDB(questionModel: QuestionModel) {
         val db = writableDatabase
         val contentValues = ContentValues()
 
-        contentValues.put(QUESTION, androidQuestionModel.question)
-        contentValues.put(OPTION1, androidQuestionModel.option1)
-        contentValues.put(OPTION2, androidQuestionModel.option2)
-        contentValues.put(OPTION3, androidQuestionModel.option3)
-        contentValues.put(ANSWER, androidQuestionModel.answer)
+        contentValues.put(QUESTION, questionModel.question)
+        contentValues.put(OPTION1, questionModel.option1)
+        contentValues.put(OPTION2, questionModel.option2)
+        contentValues.put(OPTION3, questionModel.option3)
+        contentValues.put(ANSWER, questionModel.answer)
 
         val id = db.insert(TABLE_NAME, null, contentValues)
 

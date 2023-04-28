@@ -3,9 +3,8 @@ package com.example.quizapp
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizapp.Adapter.ClickListener
 import com.example.quizapp.Adapter.QuizTopicAdapter
 import com.example.quizapp.Database.QuestionDAO
@@ -14,12 +13,13 @@ import com.example.quizapp.Model.QuizTopicModel
 import com.example.quizapp.Repository.QuizRepository
 import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
-import com.example.quizapp.Views.QuizActivity
 import com.example.quizapp.Views.SelectOption
+import com.example.quizapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ClickListener {
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var questionDAO: QuestionDAO
     private val quizTopicModelList = mutableListOf<QuizTopicModel>()
@@ -27,13 +27,14 @@ class MainActivity : AppCompatActivity(), ClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         questionDAO = QuizRoomDatabase.getQuestionObject(this).getQuestionDAO()
         val quizRepository = QuizRepository(questionDAO)
         val quizViewModelFactory = QuizViewModelFactory(quizRepository)
         quizViewModel =
-            ViewModelProviders.of(this, quizViewModelFactory).get(QuizViewModel::class.java)
+            ViewModelProvider(this, quizViewModelFactory).get(QuizViewModel::class.java)
 
         quizViewModel.deleteAllQuestions()
 
@@ -70,8 +71,8 @@ class MainActivity : AppCompatActivity(), ClickListener {
     private fun setRecyclerView() {
         quizTopicAdapter = QuizTopicAdapter(this, quizTopicModelList, this)
         val layoutManager = GridLayoutManager(this,2)
-        recycler_view_quiz_topic.layoutManager = layoutManager
-        recycler_view_quiz_topic.adapter = quizTopicAdapter
+        rcv.layoutManager = layoutManager
+        rcv.adapter = quizTopicAdapter
 
     }
 

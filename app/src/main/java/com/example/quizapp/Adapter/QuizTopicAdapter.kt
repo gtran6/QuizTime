@@ -14,7 +14,7 @@ import com.example.quizapp.databinding.QuizTopicLayoutBinding
 
 class QuizTopicAdapter(
     val context: Context,
-    val quizTopicList: MutableList<QuizTopicModel>,
+    val list: MutableList<QuizTopicModel>,
     val clickListener: ClickListener
 ) : RecyclerView.Adapter<QuizTopicViewHolder>() {
 
@@ -23,7 +23,7 @@ class QuizTopicAdapter(
     }
 
     override fun onBindViewHolder(holder: QuizTopicViewHolder, position: Int) {
-        val quizTopicModel = quizTopicList[position]
+        val quizTopicModel = list[position]
 
         holder.binding.apply {
             tvTopicName.text = quizTopicModel.topicName
@@ -36,7 +36,7 @@ class QuizTopicAdapter(
     }
 
     override fun getItemCount(): Int {
-        return quizTopicList.size
+        return list.size
     }
 }
 

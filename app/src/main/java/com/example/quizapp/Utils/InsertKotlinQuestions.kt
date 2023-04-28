@@ -1,12 +1,12 @@
 package com.example.quizapp.Utils
 
-import com.example.quizapp.Model.AndroidQuestionModel
+import com.example.quizapp.Model.QuestionModel
 
 class InsertKotlinQuestions {
-    private var questionModelList = mutableListOf<AndroidQuestionModel>()
+    private var questionModelList = mutableListOf<QuestionModel>()
 
-    fun insertKotlinQuestionToDB(): MutableList<AndroidQuestionModel> {
-        val questionModel = AndroidQuestionModel(
+    fun insertKotlinQuestionToDB(): MutableList<QuestionModel> {
+        val questionModel = QuestionModel(
             "Kotlin is developed by?",
             "Google",
             "Adobe",
@@ -15,7 +15,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel)
 
-        val questionModel1 = AndroidQuestionModel(
+        val questionModel1 = QuestionModel(
             "What is the default behavior of Kotlin classes?",
             "All classes are public",
             "All classes are sealed",
@@ -25,7 +25,7 @@ class InsertKotlinQuestions {
         questionModelList.add(questionModel1)
 
 
-        val questionModel2 = AndroidQuestionModel(
+        val questionModel2 = QuestionModel(
             "What is an immutable variable?",
             "A variable that can't change, read-only",
             "A variable that can be changed",
@@ -35,7 +35,7 @@ class InsertKotlinQuestions {
         questionModelList.add(questionModel2)
 
 
-        val questionModel3 = AndroidQuestionModel(
+        val questionModel3 = QuestionModel(
             "Identify the correct way to create an arraylist in Kotlin?",
             "val list = arrayListOf(1, 2, 3)",
             "val map = hashMapOf(1 to \"one\", 2 to \"two\", 3 to \"three\")",
@@ -45,7 +45,7 @@ class InsertKotlinQuestions {
         questionModelList.add(questionModel3)
 
 
-        val questionModel4 = AndroidQuestionModel(
+        val questionModel4 = QuestionModel(
             "Which of following targets currently not supported by Kotlin?",
             ".NET CLR",
             "LLVM",
@@ -55,7 +55,7 @@ class InsertKotlinQuestions {
 
         questionModelList.add(questionModel4)
 
-        val questionModel5 = AndroidQuestionModel(
+        val questionModel5 = QuestionModel(
             "How to make a multi lined comment in Kotlin?",
             "/ multi line comment /",
             "//",
@@ -64,7 +64,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel5)
 
-        val questionModel6 = AndroidQuestionModel(
+        val questionModel6 = QuestionModel(
             "Which file extension is used to save Kotlin files.",
             ".java",
             ".kot",
@@ -73,7 +73,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel6)
 
-        val questionModel7 = AndroidQuestionModel(
+        val questionModel7 = QuestionModel(
             "How many types of constructors available in Kotlin?",
             "1",
             "2",
@@ -82,7 +82,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel7)
 
-        val questionModel8 = AndroidQuestionModel(
+        val questionModel8 = QuestionModel(
             "What is the use of data class in Kotlin?",
             "extract the basic data types",
             "delete the basic data types",
@@ -91,7 +91,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel8)
 
-        val questionModel9 = AndroidQuestionModel(
+        val questionModel9 = QuestionModel(
             "What is the syntax for declaring a variable as volatile in Kotlin?",
             "var x: Long? = null",
             "Volatile var x: Long?",
@@ -100,7 +100,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel9)
 
-        val questionModel10 = AndroidQuestionModel(
+        val questionModel10 = QuestionModel(
             "Which of th following is used to compare two strings in Kotlin?",
             "Using == operator",
             "Using compareTo()",
@@ -109,7 +109,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel10)
 
-        val questionModel11 = AndroidQuestionModel(
+        val questionModel11 = QuestionModel(
             "Elvis Operator is used for handling null expectations in Kotlin.",
             "True",
             "False",
@@ -118,7 +118,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel11)
 
-        val questionModel12 = AndroidQuestionModel(
+        val questionModel12 = QuestionModel(
             "Does Kotlin support primitive Datatypes?",
             "Yes",
             "No",
@@ -127,7 +127,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel12)
 
-        val questionModel13 = AndroidQuestionModel(
+        val questionModel13 = QuestionModel(
             "Which of following option is used to handle null exceptions in Kotlin?",
             "Range",
             "Elvis Operator",
@@ -136,7 +136,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel13)
 
-        val questionModel14 = AndroidQuestionModel(
+        val questionModel14 = QuestionModel(
             "Does Kotlin works only for Java?",
             "Yes",
             "No",
@@ -145,7 +145,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel14)
 
-        val questionModel15 = AndroidQuestionModel(
+        val questionModel15 = QuestionModel(
             "Which function changes the value of the element at the current iterator location?",
             "change()",
             "modify()",
@@ -154,7 +154,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel15)
 
-        val questionModel16 = AndroidQuestionModel(
+        val questionModel16 = QuestionModel(
             "Can we execute Kotlin Code Without Jvm?",
             "Yes",
             "No",
@@ -163,7 +163,7 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel16)
 
-        val questionModel17 = AndroidQuestionModel(
+        val questionModel17 = QuestionModel(
             "What is the entry point for a Kotlin application?",
             "fun static main(){}",
             "fun main(){}",

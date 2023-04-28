@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "question_table")
-data class AndroidQuestionModel(
+data class QuestionModel(
     @ColumnInfo(name = "question") var question: String,
     @ColumnInfo(name = "option1") var option1: String,
     @ColumnInfo(name = "option2") var option2: String,

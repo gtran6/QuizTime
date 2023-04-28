@@ -1,11 +1,9 @@
 package com.example.quizapp.Views
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizapp.R
@@ -35,23 +33,27 @@ class SelectOption : AppCompatActivity() {
 
         btnInterview.setOnClickListener {
 
-            if (topicName == "Android") {
-                webView.visibility = View.VISIBLE
-                var url: String =
-                    "https://github.com/gtran6"
-                startWebView(url)
-            } else if (topicName == "Kotlin") {
-                webView.visibility = View.VISIBLE
-                var url: String =
-                    "https://github.com/gtran6"
-                startWebView(url)
-            } else {
-                Toast.makeText(this, "Questions will update soon...", Toast.LENGTH_SHORT).show()
+            when (topicName) {
+                "Android" -> {
+                    webView.visibility = View.VISIBLE
+                    var url: String =
+                        "https://github.com/gtran6"
+                    //startWebView(url)
+                }
+                "Kotlin" -> {
+                    webView.visibility = View.VISIBLE
+                    var url: String =
+                        "https://github.com/gtran6"
+                    //startWebView(url)
+                }
+                else -> {
+                    Toast.makeText(this, "Questions will be updated", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
 
-    private fun startWebView(url: String) {
+/*    private fun startWebView(url: String) {
 
         val settings = webView.settings
         settings.javaScriptEnabled = true
@@ -88,5 +90,5 @@ class SelectOption : AppCompatActivity() {
             }
         }
         webView.loadUrl(url)
-    }
+    }*/
 }

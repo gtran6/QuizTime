@@ -23,7 +23,7 @@
                 android:id="@+id/tvTimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="29"
+                android:text="30"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="1/15"
+                android:text="1/10"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -150,7 +150,7 @@
             android:paddingTop="20dp"
             android:paddingEnd="50dp"
             android:paddingBottom="20dp"
-            android:text="@string/confirm"
+            android:text="@string/check_answer"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp" />

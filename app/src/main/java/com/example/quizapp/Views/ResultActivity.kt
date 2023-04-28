@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.quizapp.Database.QuestionDAO
 import com.example.quizapp.Database.QuizRoomDatabase
 import com.example.quizapp.MainActivity
-import com.example.quizapp.Model.AndroidQuestionModel
 import com.example.quizapp.R
 import com.example.quizapp.Repository.QuizRepository
 import com.example.quizapp.ViewModel.QuizViewModel
