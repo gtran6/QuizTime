@@ -172,7 +172,6 @@ class InsertKotlinQuestions {
         )
         questionModelList.add(questionModel17)
 
-        questionModelList.add(questionModel15)
         return questionModelList
     }
 

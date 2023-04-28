@@ -1,0 +1,106 @@
+package com.example.quizapp.Utils
+
+import com.example.quizapp.Model.AndroidQuestionModel
+
+class InsertMVVMQuestions {
+
+    private var questionModelList = mutableListOf<AndroidQuestionModel>()
+
+    fun insertMVVMQuestionToDB(): MutableList<AndroidQuestionModel> {
+        val questionModel = AndroidQuestionModel(
+            "What does MVVM stand for in Android development?",
+            "Model View ViewModel",
+            "Main View Model Manager",
+            "Model View Controller",
+            1
+        )
+        questionModelList.add(questionModel)
+
+        val questionModel1 = AndroidQuestionModel(
+            "How does the ViewModel communicate with the View in MVVM?",
+            "Through a callback interface",
+            "Through the Observer pattern",
+            "Through an Intent",
+            2
+        )
+        questionModelList.add(questionModel1)
+
+
+        val questionModel2 = AndroidQuestionModel(
+            "What is the purpose of LiveData in MVVM?",
+            "To observe changes in the data and update the UI accordingly",
+            "To hold the data in the ViewModel",
+            "To handle user interactions in the ViewModel",
+            1
+        )
+        questionModelList.add(questionModel2)
+
+
+        val questionModel3 = AndroidQuestionModel(
+            "Which component in MVVM is responsible for handling business logic?",
+            "ViewModel",
+            "View",
+            "Model",
+            1
+        )
+        questionModelList.add(questionModel3)
+
+
+        val questionModel4 = AndroidQuestionModel(
+            "What is the main advantage of using MVVM in Android development?",
+            "Better separation of concerns",
+            "Easier implementation of complex UI",
+            "Better performance",
+            1
+        )
+
+        questionModelList.add(questionModel4)
+
+        val questionModel5 = AndroidQuestionModel(
+            "What is the recommended way to implement data binding in MVVM?",
+            "Using the Android Data Binding library",
+            "Manually setting the values in the UI components",
+            "Using a third-party library",
+            1
+        )
+        questionModelList.add(questionModel5)
+
+        val questionModel6 = AndroidQuestionModel(
+            "What is the recommended way to handle configuration changes (such as screen rotations) in MVVM architecture?",
+            "Store the ViewModel state in a Bundle and restore it after the configuration change",
+            "Use the ViewModel's onCleared() method to reset the state after the configuration change",
+            "Use the SavedStateHandle to store the ViewModel state across configuration changes",
+            3
+        )
+        questionModelList.add(questionModel6)
+
+        val questionModel7 = AndroidQuestionModel(
+            "Which lifecycle method of the ViewModel component is called when the associated View is destroyed?",
+            "onStart()",
+            "onCleared()",
+            "onCreate()",
+            2
+        )
+        questionModelList.add(questionModel7)
+
+        val questionModel8 = AndroidQuestionModel(
+            "How can you handle dependency injection in MVVM architecture?",
+            "Use the Dagger library to inject dependencies into the ViewModel",
+            "Use the ViewModel's constructor to pass dependencies from the View",
+            "Use the ViewModel's constructor to pass dependencies from the View",
+            3
+        )
+        questionModelList.add(questionModel8)
+
+        val questionModel9 = AndroidQuestionModel(
+            "What is the recommended way to implement navigation between different screens or fragments in MVVM architecture?",
+            "Use Intents to start different activities or fragments",
+            "Use the ViewModel to directly manipulate the FragmentManager",
+            "Use the Navigation Component library to handle navigation",
+            3
+        )
+        questionModelList.add(questionModel9)
+
+        return questionModelList
+    }
+}

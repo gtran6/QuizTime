@@ -21,6 +21,7 @@ import com.example.quizapp.Repository.QuizRepository
 import com.example.quizapp.Utils.InsertAndroidQuestions
 import com.example.quizapp.Utils.InsertCoroutinesQuestions
 import com.example.quizapp.Utils.InsertKotlinQuestions
+import com.example.quizapp.Utils.InsertMVVMQuestions
 import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
 import kotlinx.android.synthetic.main.activity_quiz.*
@@ -28,14 +29,13 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 class QuizActivity : AppCompatActivity() {
 
     private var questionModelList = mutableListOf<AndroidQuestionModel>()
-    private lateinit var quizRoomDatabase: QuizRoomDatabase
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var androidQuestionModel: AndroidQuestionModel
     private lateinit var questionDAO: QuestionDAO
 
     private var questionCount: Int = 0
     private var questionCounter: Int = 0
-    private var scoreCount: Int = 0
+
     private var correct: Int = 0
     private var wrong: Int = 0
     private lateinit var correctAnimation: Animation
@@ -43,9 +43,9 @@ class QuizActivity : AppCompatActivity() {
 
     private var questionTotal: Int = 0
 
-    var MUSIC_FLAG = 0
+
     private lateinit var timerDialog: TimerDialog
-    private lateinit var playSound: PlaySound
+
 
     private var isAnswered: Boolean = false
 
@@ -64,7 +64,7 @@ class QuizActivity : AppCompatActivity() {
         quizViewModel =
             ViewModelProviders.of(this, quizViewModelFactory).get(QuizViewModel::class.java)
 
-        playSound = PlaySound(this)
+
         wrongAnimation = AnimationUtils.loadAnimation(this, R.anim.incorrect_animation)
         wrongAnimation.repeatCount = 3
 
@@ -74,6 +74,7 @@ class QuizActivity : AppCompatActivity() {
         val insertQuestions = InsertAndroidQuestions()
         val kotlinQuestions = InsertKotlinQuestions()
         val coroutinesQuestions = InsertCoroutinesQuestions()
+        val mvvmQuestions = InsertMVVMQuestions()
 
         if (topicName == "Android") {
 
@@ -89,6 +90,11 @@ class QuizActivity : AppCompatActivity() {
 
             for (i in 0..coroutinesQuestions.insertCoroutinesQuestion().size) {
                 quizViewModel.addQuestionData(coroutinesQuestions.insertCoroutinesQuestion()[i])
+            }
+        } else if (topicName == "MVVM") {
+
+            for (i in 0..mvvmQuestions.insertMVVMQuestionToDB().size) {
+                quizViewModel.addQuestionData(mvvmQuestions.insertMVVMQuestionToDB()[i])
             }
         }
 
@@ -132,7 +138,7 @@ class QuizActivity : AppCompatActivity() {
         radio_button2.setBackgroundColor(Color.TRANSPARENT)
         radio_button3.setBackgroundColor(Color.TRANSPARENT)
 
-        if (topicName.equals("Android") || topicName.equals("Kotlin") || topicName.equals("Coroutines")) {
+        if (topicName.equals("Android") || topicName.equals("Kotlin") || topicName.equals("Coroutines") || topicName.equals("MVVM")) {
             if (questionCounter < questionCount) {
                 androidQuestionModel = questionModelList[questionCounter]
                 tvQuestion.text = androidQuestionModel.question
@@ -156,7 +162,6 @@ class QuizActivity : AppCompatActivity() {
         intent.putExtra("wrong", wrong)
 
         startActivity(intent)
-
     }
 
     private fun checkAnswerIsCorrectORNot() {
@@ -166,9 +171,9 @@ class QuizActivity : AppCompatActivity() {
         var ansPosition = radio_group.indexOfChild(rbSelected) + 1
 
         if (ansPosition == androidQuestionModel.answer) {
-            MUSIC_FLAG = 1
+
             rbSelected.setBackgroundResource(R.drawable.correct_ans_bg)
-            playSound.seAudioforAnswers(MUSIC_FLAG)
+
             rbSelected.startAnimation(correctAnimation)
             correct++
             tvCorrect.text = "$correct"
@@ -178,8 +183,7 @@ class QuizActivity : AppCompatActivity() {
             rbSelected.setBackgroundResource(R.drawable.wrong_ans_bg)
             wrong++
             tvWrong.text = "$wrong"
-            MUSIC_FLAG = 2
-            playSound.seAudioforAnswers(MUSIC_FLAG)
+
             showSolution()
         }
     }
@@ -199,9 +203,9 @@ class QuizActivity : AppCompatActivity() {
         }
 
         if (questionCounter < questionCount) {
-            btnConfirm.text = "Next"
+            btnConfirm.text = "Next Question"
         } else {
-            btnConfirm.text = "Finish"
+            btnConfirm.text = "Finish Quiz"
         }
     }
 }
