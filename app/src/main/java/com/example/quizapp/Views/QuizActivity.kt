@@ -1,8 +1,10 @@
 package com.example.quizapp.Views
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,6 +27,8 @@ import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
 import com.example.quizapp.databinding.ActivityQuizBinding
 import kotlinx.android.synthetic.main.activity_quiz.*
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
@@ -50,10 +54,18 @@ class QuizActivity : AppCompatActivity() {
 
     private var isAnswered: Boolean = false
 
+    private var countDownTimer: CountDownTimer? = null
+    private val countDownInMilliSecond: Long = 30000
+    private val countDownInterval: Long = 1000
+    private var timeLeftMilliSeconds: Long = 0
+    private var defaultColor: ColorStateList? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        startCountDownTimer()
 
         var intent = Intent()
         intent = getIntent()
@@ -123,6 +135,28 @@ class QuizActivity : AppCompatActivity() {
                 moveToNextQuestion()
             }
         }
+    }
+
+    private fun startCountDownTimer() {
+        countDownTimer = object : CountDownTimer(timeLeftMilliSeconds, countDownInterval) {
+            override fun onTick(millisUntilFinished: Long) {
+                binding.apply {
+                    timeLeftMilliSeconds = millisUntilFinished
+                    val second = TimeUnit.MILLISECONDS.toSeconds(timeLeftMilliSeconds).toInt()
+
+                    val timer = String.format(Locale.getDefault(), "Time: %02d", second)
+                    tvTimer.text = timer
+                    if (timeLeftMilliSeconds < 10000) {
+                        tvTimer.setTextColor(Color.CYAN)
+                    } else {
+                        tvTimer.setTextColor(defaultColor)
+                    }
+                }
+            }
+            override fun onFinish() {
+                moveToNextQuestion()
+            }
+        }.start()
     }
 
     private fun moveToNextQuestion() {
