@@ -17,13 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:padding="10dp">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/tvTimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="30"
+                android:text="@string/_30"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="1/10"
+                android:text="@string/_1_10"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/layoutCounter"
             android:layout_marginTop="20dp"
-            android:padding="10dp">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/tvWrong"
@@ -54,7 +54,7 @@
                 android:text="@string/_0"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                app:drawableStartCompat="@drawable/icons8_cross_mark_48" />
+                app:drawableStartCompat="@drawable/ic_wrong" />
 
             <TextView
                 android:id="@+id/tvCorrect"
@@ -63,10 +63,10 @@
                 android:layout_alignParentEnd="true"
                 android:drawablePadding="20dp"
                 android:gravity="center"
-                android:text="0"
+                android:text="@string/_0"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                app:drawableStartCompat="@drawable/icons8_done_48" />
+                app:drawableStartCompat="@drawable/ic_correct" />
 
         </RelativeLayout>
 
@@ -133,6 +133,7 @@
                         android:textSize="17sp" />
 
                 </RadioGroup>
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

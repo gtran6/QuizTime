@@ -126,6 +126,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun moveToNextQuestion() {
+        btnConfirm.text = "Check Answer"
         var intent = Intent()
         intent = getIntent()
         val topicName: String = intent.getStringExtra("TopicName").toString()
@@ -182,6 +183,7 @@ class QuizActivity : AppCompatActivity() {
             rbSelected.startAnimation(correctAnimation)
             correct++
             tvCorrect.text = "$correct"
+            btnConfirm.text = "Next Question"
 
         } else {
             rbSelected.startAnimation(wrongAnimation)
@@ -190,6 +192,7 @@ class QuizActivity : AppCompatActivity() {
             tvWrong.text = "$wrong"
 
             showSolution()
+            btnConfirm.text = "Next Question"
         }
     }
 

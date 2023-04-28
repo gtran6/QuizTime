@@ -19,4 +19,6 @@
     <string name="choose_an_option">Choose An Option</string>
     <string name="try_again">Try Again</string>
     <string name="check_answer">Check Answer</string>
+    <string name="_30">30</string>
+    <string name="_1_10">1/10</string>
 </resources>

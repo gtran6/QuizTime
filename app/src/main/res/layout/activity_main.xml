@@ -60,11 +60,11 @@
 
             <ImageView
                 android:id="@+id/ivQuiz"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:layout_centerVertical="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/_636982888705" />
+                android:src="@drawable/main" />
 
             <TextView
                 android:layout_width="match_parent"
