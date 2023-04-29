@@ -55,7 +55,7 @@ class QuizActivity : AppCompatActivity() {
     private var isAnswered: Boolean = false
 
     private var countDownTimer: CountDownTimer? = null
-    private val countDownInMilliSecond: Long = 30000
+    private val countDownInMilliSecond: Long = 60000
     private val countDownInterval: Long = 1000
     private var timeLeftMilliSeconds: Long = 0
     private var defaultColor: ColorStateList? = null
@@ -65,6 +65,8 @@ class QuizActivity : AppCompatActivity() {
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        defaultColor = tvTimer.textColors
+        timeLeftMilliSeconds = countDownInMilliSecond
         startCountDownTimer()
 
         var intent = Intent()
@@ -147,7 +149,7 @@ class QuizActivity : AppCompatActivity() {
                     val timer = String.format(Locale.getDefault(), "Time: %02d", second)
                     tvTimer.text = timer
                     if (timeLeftMilliSeconds < 10000) {
-                        tvTimer.setTextColor(Color.CYAN)
+                        tvTimer.setTextColor(Color.RED)
                     } else {
                         tvTimer.setTextColor(defaultColor)
                     }
