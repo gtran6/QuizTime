@@ -1,9 +1,11 @@
 package com.example.quizapp.Views
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizapp.R
@@ -36,15 +38,15 @@ class SelectOption : AppCompatActivity() {
             when (topicName) {
                 "Android" -> {
                     webView.visibility = View.VISIBLE
-                    var url: String =
-                        "https://github.com/gtran6"
-                    //startWebView(url)
+                    val url: String =
+                        "https://medium.com/@ranjeet123/kotlin-android-interview-questions-8e79df2a9a24"
+                    startWebView(url)
                 }
                 "Kotlin" -> {
                     webView.visibility = View.VISIBLE
-                    var url: String =
-                        "https://github.com/gtran6"
-                    //startWebView(url)
+                    val url: String =
+                        "https://medium.com/@ranjeet123/kotlin-android-interview-questions-8e79df2a9a24"
+                    startWebView(url)
                 }
                 else -> {
                     Toast.makeText(this, "Questions will be updated", Toast.LENGTH_SHORT).show()
@@ -53,7 +55,7 @@ class SelectOption : AppCompatActivity() {
         }
     }
 
-/*    private fun startWebView(url: String) {
+    private fun startWebView(url: String) {
 
         val settings = webView.settings
         settings.javaScriptEnabled = true
@@ -90,5 +92,5 @@ class SelectOption : AppCompatActivity() {
             }
         }
         webView.loadUrl(url)
-    }*/
+    }
 }

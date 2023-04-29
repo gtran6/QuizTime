@@ -15,7 +15,7 @@ import com.example.quizapp.databinding.QuizTopicLayoutBinding
 class QuizTopicAdapter(
     val context: Context,
     val list: MutableList<QuizTopicModel>,
-    val clickListener: ClickListener
+    private val clickListener: ClickListener
 ) : RecyclerView.Adapter<QuizTopicViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizTopicViewHolder {

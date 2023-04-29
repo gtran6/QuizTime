@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
         <activity
-            android:name=".RecapActivity"
+            android:name=".Views.RecapActivity"
             android:exported="false" />
         <activity
             android:name=".Views.ResultActivity"

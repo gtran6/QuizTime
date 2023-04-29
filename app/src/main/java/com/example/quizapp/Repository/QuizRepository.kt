@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class QuizRepository(val questionDAO: QuestionDAO) {
+class QuizRepository(private val questionDAO: QuestionDAO) {
 
     fun getAllRoutines(): LiveData<List<QuestionModel>> {
         return questionDAO.getAllQuestion()

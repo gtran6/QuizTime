@@ -3,29 +3,28 @@ package com.example.quizapp.Utils
 import com.example.quizapp.Model.QuestionModel
 
 class InsertAndroidQuestions {
-    private var questionModelList = mutableListOf<QuestionModel>()
+    private var list = mutableListOf<QuestionModel>()
 
     fun insertQuestionToDB(): MutableList<QuestionModel> {
-        val questionModel = QuestionModel(
+        val model1 = QuestionModel(
             "Android Web Browser Is Based On?",
             "Safari",
             "Firefox",
             "Open-source Webkit",
             3
         )
-        questionModelList.add(questionModel)
+        list.add(model1)
 
-        val questionModel1 = QuestionModel(
+        val model2 = QuestionModel(
             "Which of the following virtual machine is used by the Android operating system?",
             "Dalvik virtual machine",
             "JVM",
             "Simple virtual machine",
             1
         )
-        questionModelList.add(questionModel1)
+        list.add(model2)
 
-
-        val questionModel2 = QuestionModel(
+        val model3 = QuestionModel(
             " What is the use of content provider in Android?",
 
             "For storing the data in the database",
@@ -33,10 +32,9 @@ class InsertAndroidQuestions {
             "For sending the data from an application to another application",
             3
         )
-        questionModelList.add(questionModel2)
+        list.add(model3)
 
-
-        val questionModel3 = QuestionModel(
+        val model4 = QuestionModel(
             " APK stands for??",
 
             "Android Phone Kit",
@@ -44,10 +42,9 @@ class InsertAndroidQuestions {
             "Android Package Kit",
             3
         )
-        questionModelList.add(questionModel3)
+        list.add(model4)
 
-
-        val questionModel4 = QuestionModel(
+        val model5 = QuestionModel(
             "What does API stand for?",
 
             "Android Programming Interface",
@@ -56,9 +53,9 @@ class InsertAndroidQuestions {
             1
         )
 
-        questionModelList.add(questionModel4)
+        list.add(model5)
 
-        val questionModel5 = QuestionModel(
+        val model6 = QuestionModel(
             " What is an activity in android?",
 
             "android class",
@@ -66,98 +63,45 @@ class InsertAndroidQuestions {
             "A single screen in an application with supporting java code",
             3
         )
-        questionModelList.add(questionModel5)
+        list.add(model6)
 
-        val questionModel6 = QuestionModel(
+        val model7 = QuestionModel(
             "What Does AAPT Stands For?",
             "Android Asset Processing Tool.",
             "Android Asset Providing Tool.",
             "Android Asset Packaging Tool.",
             3
         )
-        questionModelList.add(questionModel6)
+        list.add(model7)
 
-        val questionModel7 = QuestionModel(
+        val model8 = QuestionModel(
             ". What Are The Functionalities In AsyncTask In Android?",
             "OnPostExecution()",
             "OnPreExecution()",
             "DoInBackground()",
             1
         )
-        questionModelList.add(questionModel7)
+        list.add(model8)
 
-        val questionModel8 = QuestionModel(
+        val model9 = QuestionModel(
             "View Pager Is Used For?",
             "Swiping Activities",
             "Swiping Fragments",
             "Paging Down List Items",
             2
         )
-        questionModelList.add(questionModel8)
+        list.add(model9)
 
-        val questionModel9 = QuestionModel(
-            "Android Is Based On Which Kernal?",
+        val model10 = QuestionModel(
+            "Android Is Based On Which Kernel?",
             "Windows",
             "Linux",
             "Redhat",
             2
         )
-        questionModelList.add(questionModel9)
+        list.add(model10)
 
-        val questionModel10 = QuestionModel(
-            "What is Manifest.xml in android?",
-            "Information about layout in an application",
-            "The information about activities in an application",
-            "All the information about an application",
-            3
-        )
-        questionModelList.add(questionModel10)
-
-        val questionModel11 = QuestionModel(
-            "Which code used by Android is not a open source?",
-            "WiFi Driver",
-            "Device Driver",
-            "Video Driver",
-            1
-        )
-        questionModelList.add(questionModel11)
-
-        val questionModel12 = QuestionModel(
-            "Android is based on Linux for the following reason.",
-            "Portability",
-            "Security",
-            "All are Correct",
-            3
-        )
-        questionModelList.add(questionModel12)
-
-        val questionModel13 = QuestionModel(
-            "Which among these are NOT a part of Android’s native libraries?",
-            "OpenGL",
-            "Webkit",
-            "Dalvik",
-            3
-        )
-        questionModelList.add(questionModel13)
-
-        val questionModel14 = QuestionModel(
-            "What does the src folder contain?",
-            "XML resource files",
-            "Java source code files",
-            "Image and icon files",
-            2
-        )
-        questionModelList.add(questionModel14)
-
-        val questionModel15 = QuestionModel(
-            "Which one is not a nickname of a version of Andriod?",
-            "cupcake",
-            "Muffin",
-            "Gingerbread",
-            2
-        )
-        questionModelList.add(questionModel15)
-        return questionModelList
+        return list
     }
 
 }

@@ -162,10 +162,13 @@ class QuizActivity : AppCompatActivity() {
         val timeOverOk = view.findViewById<Button>(R.id.timeOver_ok)
         val alertDialog = builder.create()
         timeOverOk.setOnClickListener {
+            alertDialog.dismiss()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         alertDialog.show()
+        alertDialog.setCancelable(false)
+        alertDialog.setCanceledOnTouchOutside(false)
     }
 
     private fun moveToNextQuestion() {
