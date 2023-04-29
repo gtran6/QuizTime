@@ -1,13 +1,16 @@
 package com.example.quizapp.Views
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +18,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.Database.QuestionDAO
 import com.example.quizapp.Database.QuizRoomDatabase
+import com.example.quizapp.MainActivity
 import com.example.quizapp.Model.QuestionModel
 import com.example.quizapp.MusicController.TimerDialog
 import com.example.quizapp.R
@@ -23,6 +27,8 @@ import com.example.quizapp.Utils.InsertAndroidQuestions
 import com.example.quizapp.Utils.InsertCoroutinesQuestions
 import com.example.quizapp.Utils.InsertKotlinQuestions
 import com.example.quizapp.Utils.InsertMVVMQuestions
+import com.example.quizapp.Utils.Utiles.countDownInMilliSecond
+import com.example.quizapp.Utils.Utiles.countDownInterval
 import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
 import com.example.quizapp.databinding.ActivityQuizBinding
@@ -32,31 +38,19 @@ import java.util.concurrent.TimeUnit
 
 class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
-
     private var questionModelList = mutableListOf<QuestionModel>()
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var questionModel: QuestionModel
     private lateinit var questionDAO: QuestionDAO
-
     private var questionCount: Int = 0
     private var questionCounter: Int = 0
-
     private var correct: Int = 0
     private var wrong: Int = 0
     private lateinit var correctAnimation: Animation
     private lateinit var wrongAnimation: Animation
-
     private var questionTotal: Int = 0
-
-
-    private lateinit var timerDialog: TimerDialog
-
-
     private var isAnswered: Boolean = false
-
     private var countDownTimer: CountDownTimer? = null
-    private val countDownInMilliSecond: Long = 60000
-    private val countDownInterval: Long = 1000
     private var timeLeftMilliSeconds: Long = 0
     private var defaultColor: ColorStateList? = null
 
@@ -156,9 +150,22 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
             override fun onFinish() {
-                moveToNextQuestion()
+                timeOverAlertDialog()
             }
         }.start()
+    }
+
+    private fun timeOverAlertDialog() {
+        val builder = AlertDialog.Builder(this)
+        val view = LayoutInflater.from(this).inflate(R.layout.time_over_dialog, null)
+        builder.setView(view)
+        val timeOverOk = view.findViewById<Button>(R.id.timeOver_ok)
+        val alertDialog = builder.create()
+        timeOverOk.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        alertDialog.show()
     }
 
     private fun moveToNextQuestion() {
@@ -251,5 +258,10 @@ class QuizActivity : AppCompatActivity() {
         } else {
             btnConfirm.text = "Finish Quiz"
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        countDownTimer?.cancel()
     }
 }

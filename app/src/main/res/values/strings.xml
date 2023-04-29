@@ -21,4 +21,6 @@
     <string name="check_answer">Check Answer</string>
     <string name="_30">30</string>
     <string name="_1_10">1/10</string>
+    <string name="time_over">Time Over</string>
+    <string name="_60">60</string>
 </resources>
