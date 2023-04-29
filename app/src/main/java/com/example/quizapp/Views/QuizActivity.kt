@@ -26,8 +26,8 @@ import com.example.quizapp.Utils.InsertAndroidQuestions
 import com.example.quizapp.Utils.InsertCoroutinesQuestions
 import com.example.quizapp.Utils.InsertKotlinQuestions
 import com.example.quizapp.Utils.InsertMVVMQuestions
-import com.example.quizapp.Utils.Utiles.countDownInMilliSecond
-import com.example.quizapp.Utils.Utiles.countDownInterval
+import com.example.quizapp.Utils.Utils.countDownInMilliSecond
+import com.example.quizapp.Utils.Utils.countDownInterval
 import com.example.quizapp.ViewModel.QuizViewModel
 import com.example.quizapp.ViewModel.QuizViewModelFactory
 import com.example.quizapp.databinding.ActivityQuizBinding
@@ -62,8 +62,6 @@ class QuizActivity : AppCompatActivity() {
         timeLeftMilliSeconds = countDownInMilliSecond
         startCountDownTimer()
 
-        var intent = Intent()
-        intent = getIntent()
         val topicName: String = intent.getStringExtra("TopicName").toString()
 
         questionDAO = QuizRoomDatabase.getQuestionObject(this).getQuestionDAO()
@@ -172,8 +170,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun moveToNextQuestion() {
         btnConfirm.text = "Check Answer"
-        var intent = Intent()
-        intent = getIntent()
+
         val topicName: String = intent.getStringExtra("TopicName").toString()
 
         questionTotal++

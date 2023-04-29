@@ -31,7 +31,6 @@ class ResultActivity : AppCompatActivity() {
 
         quizViewModel.deleteAllQuestions()
 
-        val intent = intent
         val score = intent.getIntExtra("correct", 0)
         val wrong = intent.getIntExtra("wrong", 0)
 
