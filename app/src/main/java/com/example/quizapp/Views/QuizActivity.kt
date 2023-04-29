@@ -20,7 +20,6 @@ import com.example.quizapp.Database.QuestionDAO
 import com.example.quizapp.Database.QuizRoomDatabase
 import com.example.quizapp.MainActivity
 import com.example.quizapp.Model.QuestionModel
-import com.example.quizapp.MusicController.TimerDialog
 import com.example.quizapp.R
 import com.example.quizapp.Repository.QuizRepository
 import com.example.quizapp.Utils.InsertAndroidQuestions
@@ -154,11 +153,10 @@ class QuizActivity : AppCompatActivity() {
             }
         }.start()
     }
-
     private fun timeOverAlertDialog() {
-        val builder = AlertDialog.Builder(this)
         val view = LayoutInflater.from(this).inflate(R.layout.time_over_dialog, null)
-        builder.setView(view)
+        val builder = AlertDialog.Builder(this)
+            .setView(view)
         val timeOverOk = view.findViewById<Button>(R.id.timeOver_ok)
         val alertDialog = builder.create()
         timeOverOk.setOnClickListener {
@@ -166,6 +164,7 @@ class QuizActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
         alertDialog.show()
         alertDialog.setCancelable(false)
         alertDialog.setCanceledOnTouchOutside(false)
@@ -202,6 +201,7 @@ class QuizActivity : AppCompatActivity() {
 
             } else {
                 quizEnded()
+                questionModelList.clear() // test
             }
         } else {
             layoutMain.visibility = View.GONE
