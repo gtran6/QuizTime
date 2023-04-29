@@ -179,7 +179,7 @@ class QuizActivity : AppCompatActivity() {
 
         questionTotal++
 
-        tvTotalQuestions.text = "$questionTotal / ${questionModelList.size}"
+        tvTotalQuestions.text = "$questionTotal / ${questionModelList.size - 1}"
 
         radio_group.clearCheck()
         radio_button1.setTextColor(Color.BLACK)
