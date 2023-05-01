@@ -60,7 +60,6 @@ class SelectOption : AppCompatActivity() {
         val settings = webView.settings
         settings.javaScriptEnabled = true
         WebView.setWebContentsDebuggingEnabled(false)
-
         webView.scrollBarStyle = View.SCROLLBARS_OUTSIDE_OVERLAY
         webView.settings.builtInZoomControls = true
         webView.settings.useWideViewPort = true

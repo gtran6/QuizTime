@@ -1,9 +1,11 @@
 package com.example.quizapp.Views
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -152,20 +154,20 @@ class QuizActivity : AppCompatActivity() {
         }.start()
     }
     private fun timeOverAlertDialog() {
-        val view = LayoutInflater.from(this).inflate(R.layout.time_over_dialog, null)
-        val builder = AlertDialog.Builder(this)
-            .setView(view)
-        val timeOverOk = view.findViewById<Button>(R.id.timeOver_ok)
-        val alertDialog = builder.create()
+        val builder = Dialog(this)
+        builder.setContentView(R.layout.time_over_dialog)
+        val timeOverOk = builder.findViewById<Button>(R.id.timeOver_ok)
+        if (builder.window != null) {
+            builder.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
         timeOverOk.setOnClickListener {
-            alertDialog.dismiss()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            builder.dismiss()
+            finish()
         }
 
-        alertDialog.show()
-        alertDialog.setCancelable(false)
-        alertDialog.setCanceledOnTouchOutside(false)
+        builder.show()
+        builder.setCancelable(false)
+        builder.setCanceledOnTouchOutside(false)
     }
 
     private fun moveToNextQuestion() {

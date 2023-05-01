@@ -1,3 +1,4 @@
+/*
 package com.example.quizapp.Database
 
 import android.annotation.SuppressLint
@@ -83,4 +84,4 @@ class QuizDatabaseHandler(val context: Context) :
             Toast.makeText(context, "Data Inserted Successfully", Toast.LENGTH_SHORT).show()
         }
     }
-}
+}*/
