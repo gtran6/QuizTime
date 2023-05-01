@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity(), ClickListener {
         val layoutManager = GridLayoutManager(this,2)
         rcv.layoutManager = layoutManager
         rcv.adapter = quizTopicAdapter
-
     }
 
     override fun onStartQuiz(quizTopicModel: QuizTopicModel, position: Int) {

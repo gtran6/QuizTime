@@ -156,10 +156,12 @@ class QuizActivity : AppCompatActivity() {
     private fun timeOverAlertDialog() {
         val builder = Dialog(this)
         builder.setContentView(R.layout.time_over_dialog)
+
         val timeOverOk = builder.findViewById<Button>(R.id.timeOver_ok)
         if (builder.window != null) {
             builder.window!!.setBackgroundDrawable(ColorDrawable(0))
         }
+
         timeOverOk.setOnClickListener {
             builder.dismiss()
             finish()

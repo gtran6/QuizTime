@@ -41,6 +41,9 @@ class ResultActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+        btnRecap.setOnClickListener {
+            startActivity(Intent(this, RecapActivity::class.java))
+        }
     }
     override fun onBackPressed() {
         super.onBackPressed()

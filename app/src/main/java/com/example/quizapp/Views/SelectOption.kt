@@ -20,8 +20,6 @@ class SelectOption : AppCompatActivity() {
         binding = ActivitySelectOptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var intent = Intent()
-        intent = getIntent()
         val topicName: String = intent.getStringExtra("TopicName").toString()
 
         btnQuiz.setOnClickListener {

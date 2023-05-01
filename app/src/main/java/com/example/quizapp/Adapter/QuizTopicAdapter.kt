@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.quizapp.Model.QuizTopicModel
 import com.example.quizapp.R
 import com.example.quizapp.databinding.QuizTopicLayoutBinding
+import kotlinx.android.synthetic.main.activity_quiz.*
 
 class QuizTopicAdapter(
     val context: Context,
