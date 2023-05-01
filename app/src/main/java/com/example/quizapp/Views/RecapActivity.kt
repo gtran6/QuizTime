@@ -70,6 +70,10 @@ class RecapActivity : AppCompatActivity() {
                 })
             }
         }
+
+        btnFinish.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     private fun showResult() {
@@ -99,10 +103,6 @@ class RecapActivity : AppCompatActivity() {
             tv_correct_result.text = "Correct Answers: $correctCount"
             tv_wrong_result.text = "Incorrect Answers: $incorrectCount"
             tv_score_result.text = "Text Score: $correctCount"
-        }
-
-        btnFinish.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
