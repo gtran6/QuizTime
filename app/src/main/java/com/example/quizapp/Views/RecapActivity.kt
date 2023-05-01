@@ -1,5 +1,6 @@
 package com.example.quizapp.Views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -10,6 +11,7 @@ import com.example.quizapp.Adapter.QuizTopicAdapter
 import com.example.quizapp.Adapter.RecapAdapter
 import com.example.quizapp.Database.QuestionDAO
 import com.example.quizapp.Database.QuizRoomDatabase
+import com.example.quizapp.MainActivity
 import com.example.quizapp.Model.QuestionModel
 import com.example.quizapp.R
 import com.example.quizapp.Repository.QuizRepository
@@ -97,10 +99,10 @@ class RecapActivity : AppCompatActivity() {
             tv_correct_result.text = "Correct Answers: $correctCount"
             tv_wrong_result.text = "Incorrect Answers: $incorrectCount"
             tv_score_result.text = "Text Score: $correctCount"
+        }
 
-            btnFinish.setOnClickListener {
-                finish()
-            }
+        btnFinish.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
