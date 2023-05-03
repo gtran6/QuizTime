@@ -1,6 +1,5 @@
 package com.example.quizapp.Views
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -8,7 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -20,7 +18,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.quizapp.Database.QuestionDAO
 import com.example.quizapp.Database.QuizRoomDatabase
-import com.example.quizapp.MainActivity
 import com.example.quizapp.Model.QuestionModel
 import com.example.quizapp.R
 import com.example.quizapp.Repository.QuizRepository
@@ -64,7 +61,7 @@ class QuizActivity : AppCompatActivity() {
         timeLeftMilliSeconds = countDownInMilliSecond
         startCountDownTimer()
 
-        val topicName: String = intent.getStringExtra("TopicName").toString()
+        val topicName = intent.getStringExtra("TopicName").toString()
 
         questionDAO = QuizRoomDatabase.getQuestionObject(this).getQuestionDAO()
         val quizRepository = QuizRepository(questionDAO)
@@ -202,7 +199,6 @@ class QuizActivity : AppCompatActivity() {
 
             } else {
                 quizEnded()
-                questionModelList.clear() // test
             }
         } else {
             layoutMain.visibility = View.GONE
@@ -210,9 +206,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun quizEnded() {
-        val intent = Intent(this, ResultActivity::class.java)
+        val intent = Intent(this, RecapActivity::class.java)
         intent.putExtra("correct", correct)
         intent.putExtra("wrong", wrong)
+        intent.putExtra("question", questionModel.question)
 
         startActivity(intent)
     }
@@ -230,6 +227,7 @@ class QuizActivity : AppCompatActivity() {
             rbSelected.startAnimation(correctAnimation)
             correct++
             tvCorrect.text = "$correct"
+
             btnConfirm.text = "Next Question"
 
         } else {
@@ -254,6 +252,7 @@ class QuizActivity : AppCompatActivity() {
             }
             3 -> {
                 radio_button3.setBackgroundResource(R.drawable.correct_ans_bg)
+
             }
         }
 
