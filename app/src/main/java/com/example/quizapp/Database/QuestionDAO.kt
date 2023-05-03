@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.quizapp.Model.QuestionModel
 
-
 @Dao
 interface QuestionDAO {
 

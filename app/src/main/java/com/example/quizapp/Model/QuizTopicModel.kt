@@ -1,5 +1,6 @@
 package com.example.quizapp.Model
 
-data class QuizTopicModel(
+data class QuizTopicModel (
     var iconID: Int,
-    var topicName: String)
+    var topicName: String
+    )
