@@ -20,6 +20,8 @@ class RecapActivity : AppCompatActivity() {
     }
 
     private fun setUpRecap() {
+        val score = intent.getIntExtra("correct", 0)
+        binding.txtScore.text = "YOUR SCORE: $score"
         val question = intent.getStringExtra("question")
         binding.txtQuestion.text = question
 
