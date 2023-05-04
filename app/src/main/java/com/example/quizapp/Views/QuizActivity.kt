@@ -1,6 +1,7 @@
 package com.example.quizapp.Views
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -218,29 +219,40 @@ class QuizActivity : AppCompatActivity() {
     private fun checkAnswerIsCorrectOrNot() {
         isAnswered = true
         val rbSelected: RadioButton = findViewById(radio_group.checkedRadioButtonId)
-        val ansPosition = radio_group.indexOfChild(rbSelected)
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
 
         if (rbSelected.text == questionModel.answer) {
             rbSelected.setBackgroundResource(R.drawable.correct_ans_bg)
             rbSelected.startAnimation(correctAnimation)
             correct++
-            Log.d("correct", "working ${correct}")
+            //Log.d("correct", "working ${correct}")
             tvCorrect.text = "$correct"
+
+            editor.putString("selected_option", rbSelected.text as String?)
+            editor.apply()
 
         } else {
             rbSelected.startAnimation(wrongAnimation)
             rbSelected.setBackgroundResource(R.drawable.wrong_ans_bg)
             wrong++
             tvWrong.text = "$wrong"
-            Log.d("wrong", "working ${wrong}")
+            //Log.d("wrong", "working ${wrong}")
 
             //showSolution()
+
+            editor.putString("selected_option", rbSelected.text as String?)
+            editor.apply()
 
             for (i in 0 until radio_group.childCount) {
                 val rb = radio_group.getChildAt(i) as RadioButton
                 if (rb.text == questionModel.answer) {
                     rb.startAnimation(correctAnimation)
                     rb.setBackgroundResource(R.drawable.correct_ans_bg)
+
+                    editor.putString("correct_option", rb.text as String?)
+                    editor.apply()
                     break
                 }
             }

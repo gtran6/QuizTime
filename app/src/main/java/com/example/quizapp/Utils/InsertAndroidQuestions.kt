@@ -24,7 +24,7 @@ class InsertAndroidQuestions {
         )
         list.add(model2)
 
-        val model3 = QuestionModel(
+/*        val model3 = QuestionModel(
             " What is the use of content provider in Android?",
 
             "For storing the data in the database",
@@ -99,7 +99,7 @@ class InsertAndroidQuestions {
             "Redhat",
             "Linux"
         )
-        list.add(model10)
+        list.add(model10)*/
 
         return list
     }
