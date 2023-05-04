@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -217,41 +218,34 @@ class QuizActivity : AppCompatActivity() {
     private fun checkAnswerIsCorrectOrNot() {
         isAnswered = true
         val rbSelected: RadioButton = findViewById(radio_group.checkedRadioButtonId)
-        val ansPosition = radio_group.indexOfChild(rbSelected).toString()
+        val ansPosition = radio_group.indexOfChild(rbSelected)
 
-        if (ansPosition == questionModel.answer) {
-
+        if (rbSelected.text == questionModel.answer) {
             rbSelected.setBackgroundResource(R.drawable.correct_ans_bg)
-
             rbSelected.startAnimation(correctAnimation)
             correct++
+            Log.d("correct", "working ${correct}")
             tvCorrect.text = "$correct"
-
-            btnConfirm.text = "Next Question"
-
-            /*val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-            sharedPreferences.edit().putString("selected_option", ansPosition.toString()).apply()*/
 
         } else {
             rbSelected.startAnimation(wrongAnimation)
             rbSelected.setBackgroundResource(R.drawable.wrong_ans_bg)
             wrong++
             tvWrong.text = "$wrong"
+            Log.d("wrong", "working ${wrong}")
 
             //showSolution()
 
-            // loop through all the radio buttons and set the background of the correct answer to a different color
             for (i in 0 until radio_group.childCount) {
                 val rb = radio_group.getChildAt(i) as RadioButton
                 if (rb.text == questionModel.answer) {
+                    rb.startAnimation(correctAnimation)
                     rb.setBackgroundResource(R.drawable.correct_ans_bg)
                     break
                 }
             }
-
-            btnConfirm.text = "Next Question"
         }
-
+        btnConfirm.text = "Next Question"
     }
 
     private fun showSolution() {
