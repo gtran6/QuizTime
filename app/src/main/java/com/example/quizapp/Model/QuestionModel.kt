@@ -10,7 +10,7 @@ data class QuestionModel(
     @ColumnInfo(name = "option1") var option1: String,
     @ColumnInfo(name = "option2") var option2: String,
     @ColumnInfo(name = "option3") var option3: String,
-    @ColumnInfo(name = "answer") var answer: Int
+    @ColumnInfo(name = "answer") var answer: String
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id") var id: Int? = null

@@ -11,7 +11,7 @@ class InsertCoroutinesQuestions {
             "A function that returns multiple values",
             "A function that runs in the background",
             "A function that can be paused and resumed at a later time",
-            3
+            "A function that can be paused and resumed at a later time"
         )
         list.add(model1)
 
@@ -20,7 +20,7 @@ class InsertCoroutinesQuestions {
             "await",
             "launch",
             "execute",
-            2
+            "launch"
         )
         list.add(model2)
 
@@ -29,7 +29,7 @@ class InsertCoroutinesQuestions {
             "To switch to a different thread",
             "To pause the Coroutine and wait for a result",
             "To cancel the Coroutine",
-            1
+            "To switch to a different thread"
         )
         list.add(model3)
 
@@ -38,7 +38,7 @@ class InsertCoroutinesQuestions {
             "Improved battery life",
             "Faster app startup time",
             "More efficient use of system resources",
-            3
+            "More efficient use of system resources"
         )
         list.add(model4)
 
@@ -47,7 +47,7 @@ class InsertCoroutinesQuestions {
             "Increased memory usage",
             "Increased code complexity",
             "Slower performance",
-            2
+            "Increased code complexity"
         )
         list.add(model5)
 
@@ -56,7 +56,7 @@ class InsertCoroutinesQuestions {
             "runBlocking()",
             "withContext(Dispatchers.Main)",
             "GlobalScope.launch()",
-            2
+            "withContext(Dispatchers.Main)"
         )
         list.add(model6)
 
@@ -65,7 +65,7 @@ class InsertCoroutinesQuestions {
             "To hold the result of a Coroutine computation",
             "To pause a Coroutine and wait for a result",
             "To cancel a Coroutine",
-            1
+            "To hold the result of a Coroutine computation"
         )
         list.add(model7)
 
@@ -74,7 +74,7 @@ class InsertCoroutinesQuestions {
             "Coroutines can't handle exceptions",
             "Coroutines can handle exceptions using try/catch blocks",
             "Coroutines can handle exceptions automatically",
-            2
+            "Coroutines can handle exceptions using try/catch blocks"
         )
         list.add(model8)
 
@@ -83,7 +83,7 @@ class InsertCoroutinesQuestions {
             "Coroutines always run concurrently",
             "Coroutines never run concurrently",
             "Coroutines can run concurrently if they're launched in different threads",
-            3
+            "Coroutines can run concurrently if they're launched in different threads"
         )
         list.add(model9)
 
@@ -92,7 +92,7 @@ class InsertCoroutinesQuestions {
             "launch",
             "runBlocking",
             "repeat",
-            1
+            "launch"
         )
         list.add(model10)
 

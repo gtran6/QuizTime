@@ -1,9 +1,13 @@
 package com.example.quizapp.Adapter
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.Model.QuestionModel
+import com.example.quizapp.Views.QuizActivity
+import com.example.quizapp.Views.RecapActivity
 import com.example.quizapp.databinding.ItemAnswerBinding
 
 class RecapAdapter(private val list: List<QuestionModel>) :
@@ -19,8 +23,11 @@ class RecapAdapter(private val list: List<QuestionModel>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val activity = holder.itemView.context as Activity
+        val intent = Intent(activity, QuizActivity::class.java)
+        val questions = intent.getStringExtra("question")
         holder.binding.apply {
-            tvQuestionAnswer.text = list[position].question
+            tvTitleQuestion.text = questions
         }
     }
 }

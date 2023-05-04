@@ -11,7 +11,7 @@ class InsertKotlinQuestions {
             "Google",
             "Adobe",
             "JetBrains",
-            3
+            "JetBrains"
         )
         questionModelList.add(model1)
 
@@ -20,7 +20,7 @@ class InsertKotlinQuestions {
             "All classes are public",
             "All classes are sealed",
             "All classes are final",
-            4
+            "All classes are final"
         )
         questionModelList.add(model2)
 
@@ -29,7 +29,7 @@ class InsertKotlinQuestions {
             "A variable that can't change, read-only",
             "A variable that can be changed",
             "A variable used for string interpolation",
-            1
+            "A variable that can't change, read-only"
         )
         questionModelList.add(model3)
 
@@ -38,7 +38,7 @@ class InsertKotlinQuestions {
             "val list = arrayListOf(1, 2, 3)",
             "val map = hashMapOf(1 to \"one\", 2 to \"two\", 3 to \"three\")",
             "val set = hashSetOf(1, 2, 3)",
-            1
+            "val list = arrayListOf(1, 2, 3)"
         )
         questionModelList.add(model4)
 
@@ -47,7 +47,7 @@ class InsertKotlinQuestions {
             ".NET CLR",
             "LLVM",
             "Javascript",
-            1
+            ".NET CLR"
         )
 
         questionModelList.add(model5)
@@ -57,7 +57,7 @@ class InsertKotlinQuestions {
             "/ multi line comment /",
             "//",
             "/* */",
-            1
+            "/ multi line comment /"
         )
         questionModelList.add(model6)
 
@@ -66,7 +66,7 @@ class InsertKotlinQuestions {
             ".java",
             ".kot",
             ".kt or .kts",
-            3
+            ".kt or .kts"
         )
         questionModelList.add(model7)
 
@@ -75,7 +75,7 @@ class InsertKotlinQuestions {
             "1",
             "2",
             "3",
-            2
+            "2"
         )
         questionModelList.add(model8)
 
@@ -84,7 +84,7 @@ class InsertKotlinQuestions {
             "extract the basic data types",
             "delete the basic data types",
             "holds the basic data types",
-            3
+            "holds the basic data types"
         )
         questionModelList.add(model9)
 
@@ -93,7 +93,7 @@ class InsertKotlinQuestions {
             "var x: Long? = null",
             "Volatile var x: Long?",
             "Volatile var x: Long? = null",
-            3
+            "Volatile var x: Long? = null"
         )
         questionModelList.add(model10)
 

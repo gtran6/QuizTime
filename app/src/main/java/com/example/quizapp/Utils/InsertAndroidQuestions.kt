@@ -11,7 +11,7 @@ class InsertAndroidQuestions {
             "Safari",
             "Firefox",
             "Open-source Webkit",
-            3
+            "Open-source Webkit"
         )
         list.add(model1)
 
@@ -20,7 +20,7 @@ class InsertAndroidQuestions {
             "Dalvik virtual machine",
             "JVM",
             "Simple virtual machine",
-            1
+            "Dalvik virtual machine"
         )
         list.add(model2)
 
@@ -30,7 +30,7 @@ class InsertAndroidQuestions {
             "For storing the data in the database",
             "For sharing the data between applications",
             "For sending the data from an application to another application",
-            3
+            "For sending the data from an application to another application"
         )
         list.add(model3)
 
@@ -40,7 +40,7 @@ class InsertAndroidQuestions {
             "Android Phone Kit",
             "Android Page Kit",
             "Android Package Kit",
-            3
+            "Android Package Kit"
         )
         list.add(model4)
 
@@ -50,7 +50,7 @@ class InsertAndroidQuestions {
             "Android Programming Interface",
             "Application Programming Interface",
             "Android Page Interface",
-            1
+            "Android Programming Interface"
         )
 
         list.add(model5)
@@ -61,7 +61,7 @@ class InsertAndroidQuestions {
             "android class",
             "android package",
             "A single screen in an application with supporting java code",
-            3
+            "A single screen in an application with supporting java code"
         )
         list.add(model6)
 
@@ -70,7 +70,7 @@ class InsertAndroidQuestions {
             "Android Asset Processing Tool.",
             "Android Asset Providing Tool.",
             "Android Asset Packaging Tool.",
-            3
+            "Android Asset Packaging Tool."
         )
         list.add(model7)
 
@@ -79,7 +79,7 @@ class InsertAndroidQuestions {
             "OnPostExecution()",
             "OnPreExecution()",
             "DoInBackground()",
-            1
+            "OnPostExecution()"
         )
         list.add(model8)
 
@@ -88,7 +88,7 @@ class InsertAndroidQuestions {
             "Swiping Activities",
             "Swiping Fragments",
             "Paging Down List Items",
-            2
+            "Swiping Fragments"
         )
         list.add(model9)
 
@@ -97,7 +97,7 @@ class InsertAndroidQuestions {
             "Windows",
             "Linux",
             "Redhat",
-            2
+            "Linux"
         )
         list.add(model10)
 

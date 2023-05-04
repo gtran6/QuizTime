@@ -215,10 +215,9 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun checkAnswerIsCorrectOrNot() {
-
         isAnswered = true
         val rbSelected: RadioButton = findViewById(radio_group.checkedRadioButtonId)
-        val ansPosition = radio_group.indexOfChild(rbSelected) + 1
+        val ansPosition = radio_group.indexOfChild(rbSelected).toString()
 
         if (ansPosition == questionModel.answer) {
 
@@ -230,21 +229,35 @@ class QuizActivity : AppCompatActivity() {
 
             btnConfirm.text = "Next Question"
 
+            /*val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            sharedPreferences.edit().putString("selected_option", ansPosition.toString()).apply()*/
+
         } else {
             rbSelected.startAnimation(wrongAnimation)
             rbSelected.setBackgroundResource(R.drawable.wrong_ans_bg)
             wrong++
             tvWrong.text = "$wrong"
 
-            showSolution()
+            //showSolution()
+
+            // loop through all the radio buttons and set the background of the correct answer to a different color
+            for (i in 0 until radio_group.childCount) {
+                val rb = radio_group.getChildAt(i) as RadioButton
+                if (rb.text == questionModel.answer) {
+                    rb.setBackgroundResource(R.drawable.correct_ans_bg)
+                    break
+                }
+            }
+
             btnConfirm.text = "Next Question"
         }
+
     }
 
     private fun showSolution() {
 
         when (questionModel.answer) {
-            1 -> {
+/*            1 -> {
                 radio_button1.setBackgroundResource(R.drawable.correct_ans_bg)
             }
             2 -> {
@@ -253,7 +266,7 @@ class QuizActivity : AppCompatActivity() {
             3 -> {
                 radio_button3.setBackgroundResource(R.drawable.correct_ans_bg)
 
-            }
+            }*/
         }
 
         if (questionCounter < questionCount) {

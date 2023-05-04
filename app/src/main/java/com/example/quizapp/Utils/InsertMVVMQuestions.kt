@@ -12,7 +12,7 @@ class InsertMVVMQuestions {
             "Model View ViewModel",
             "Main View Model Manager",
             "Model View Controller",
-            1
+            "Model View ViewModel"
         )
         questionModelList.add(questionModel)
 
@@ -21,7 +21,7 @@ class InsertMVVMQuestions {
             "Through a callback interface",
             "Through the Observer pattern",
             "Through an Intent",
-            2
+            "Through the Observer pattern"
         )
         questionModelList.add(questionModel1)
 
@@ -31,7 +31,7 @@ class InsertMVVMQuestions {
             "To observe changes in the data and update the UI accordingly",
             "To hold the data in the ViewModel",
             "To handle user interactions in the ViewModel",
-            1
+            "To observe changes in the data and update the UI accordingly"
         )
         questionModelList.add(questionModel2)
 
@@ -41,7 +41,7 @@ class InsertMVVMQuestions {
             "ViewModel",
             "View",
             "Model",
-            1
+            "ViewModel"
         )
         questionModelList.add(questionModel3)
 
@@ -51,7 +51,7 @@ class InsertMVVMQuestions {
             "Better separation of concerns",
             "Easier implementation of complex UI",
             "Better performance",
-            1
+            "Better separation of concerns"
         )
 
         questionModelList.add(questionModel4)
@@ -61,7 +61,7 @@ class InsertMVVMQuestions {
             "Using the Android Data Binding library",
             "Manually setting the values in the UI components",
             "Using a third-party library",
-            1
+            "Using the Android Data Binding library"
         )
         questionModelList.add(questionModel5)
 
@@ -70,7 +70,7 @@ class InsertMVVMQuestions {
             "Store the ViewModel state in a Bundle and restore it after the configuration change",
             "Use the ViewModel's onCleared() method to reset the state after the configuration change",
             "Use the SavedStateHandle to store the ViewModel state across configuration changes",
-            3
+            "Use the SavedStateHandle to store the ViewModel state across configuration changes"
         )
         questionModelList.add(questionModel6)
 
@@ -79,7 +79,7 @@ class InsertMVVMQuestions {
             "onStart()",
             "onCleared()",
             "onCreate()",
-            2
+            "onCleared()"
         )
         questionModelList.add(questionModel7)
 
@@ -88,7 +88,7 @@ class InsertMVVMQuestions {
             "Use the Dagger library to inject dependencies into the ViewModel",
             "Use the ViewModel's constructor to pass dependencies from the View",
             "Use the ViewModel's constructor to pass dependencies from the View",
-            3
+            "Use the ViewModel's constructor to pass dependencies from the View"
         )
         questionModelList.add(questionModel8)
 
@@ -97,7 +97,7 @@ class InsertMVVMQuestions {
             "Use Intents to start different activities or fragments",
             "Use the ViewModel to directly manipulate the FragmentManager",
             "Use the Navigation Component library to handle navigation",
-            3
+            "Use the Navigation Component library to handle navigation"
         )
         questionModelList.add(questionModel9)
 
