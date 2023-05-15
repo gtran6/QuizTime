@@ -1,41 +1,46 @@
 package com.example.quizapp.Adapter
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizapp.Model.QuestionModel
-import com.example.quizapp.Views.QuizActivity
-import com.example.quizapp.Views.RecapActivity
-import com.example.quizapp.databinding.ItemAnswerBinding
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.example.quizapp.R
 
-class RecapAdapter(private val list: List<QuestionModel>, private val context: Context) :
- RecyclerView.Adapter<RecapAdapter.ViewHolder>() {
-    class ViewHolder(val binding: ItemAnswerBinding) : RecyclerView.ViewHolder(binding.root)
+class RecapAdapter(
+    private val questions: List<QuestionModel>,
+    private val userAnswers: List<String>,
+    private val correctAnswers: List<String>
+) : RecyclerView.Adapter<RecapAdapter.RecapViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(ItemAnswerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecapViewHolder {
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.recap_item, parent, false)
+        return RecapViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: RecapViewHolder, position: Int) {
+        val question = questions[position]
+        val userAnswer = userAnswers[position]
+        val correctAnswer = correctAnswers[position]
+
+        holder.bindData(question, userAnswer, correctAnswer)
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return questions.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    inner class RecapViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val tvQuestion: TextView = itemView.findViewById(R.id.tvQuestion)
+        private val tvUserAnswer: TextView = itemView.findViewById(R.id.tvUserAnswer)
+        private val tvCorrectAnswer: TextView = itemView.findViewById(R.id.tvCorrectAnswer)
 
-        val gson = Gson()
-        val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val json = sharedPreferences.getString("questionList", null)
-
-        val selectedOption = sharedPreferences.getString("selected_option", null)
-
-        holder.binding.apply {
-            tvTitleQuestion.text = gson.fromJson(json, object : TypeToken<List<QuestionModel>>() {}.type)
-            tvUserAnswer.text = selectedOption
+        fun bindData(question: QuestionModel, userAnswer: String, correctAnswer: String) {
+            tvQuestion.text = question.question
+            tvUserAnswer.text = userAnswer
+            tvCorrectAnswer.text = correctAnswer
         }
     }
 }
